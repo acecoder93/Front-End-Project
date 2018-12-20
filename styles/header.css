@@ -1,0 +1,28 @@
+
+
+@media screen and (max-width: 375px){
+    header{
+        height:30%;
+        position:relative;
+    }
+    #logo{
+        height:100%;
+    }
+    #the{
+        font-size:8vh;
+    }
+    #captain{
+        font-size:14vh
+    }
+    #the-container{
+        height:30%;
+        position: absolute;
+        top: 30px;
+        left:60px
+    }
+    #captain-container{
+        height:70%;
+        position:absolute;
+        top:50px;
+    }
+}
