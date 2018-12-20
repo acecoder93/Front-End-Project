@@ -8,8 +8,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  
   </head>
   <body>
+
+    <header>
+
+
+    </header>
       Setup
       
     <!-- Optional JavaScript -->
@@ -20,26 +27,47 @@
   
   
     <script>
-
-
       // General EDAMAM API 
+      // $(function(){
+      //   var url = 'https://api.edamam.com/search?q=';
+      //   var type = 'chicken'; // Needs to be changed based on user input
+      //   var apiId = 'be5d1e96';
+      //   var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
+      //   var cal_min = '50'; // Needs to be changed based on user input
+      //   var cal_max = '500'; // Needs to be changed based on user input
+
+      //   $.get(url + type +'&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=10' 
+      //   + '&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free').done((result)=>{
+      //   console.log(result);
+      //   })
+      // })
+
+
+
+      // General Yelp APi
+
       $(function(){
-        var url = 'https://api.edamam.com/search?q=';
-        var type = 'chicken'; // Needs to be changed based on user input
-        var apiId = 'be5d1e96';
-        var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
-        var cal_min = '50'; // Needs to be changed based on user input
-        var cal_max = '500'; // Needs to be changed based on user input
+        var yelp_url = 'https://api.yelp.com/v3/businesses/search?_find_desc=Restaurants';
+        var location = 'Houston, Texas' // Based off of user input
+        var yelp_id = 'Tx5dJEhzqlcakub7bzKOWA';
+        var yelp_key = '-8PRNkPKT63Yx4ASY7q8oFe5H2kbIFj4e-YoalMHa8Stzu67xLr8ax8qqTRqv7aiM4KLQZ5b3Eh3k0jggMOyh4pf-DHSC30YC5WgZpMRKrpEj4M8EGh3UMezCe8bXHYx';
 
-        $.get(url + type +'&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=10' 
-        + '&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free').done((result)=>{
-        console.log(result);
+        $.get(url).done((result)=>{
+          console.log(result)
         })
-      })
 
-      // General 
+      // })
       
+    $(function(){
 
+      $.ajaxSetup({
+      headers:{
+        'Authorization':'Bearer -8PRNkPKT63Yx4ASY7q8oFe5H2kbIFj4e-YoalMHa8Stzu67xLr8ax8qqTRqv7aiM4KLQZ5b3Eh3k0jggMOyh4pf-DHSC30YC5WgZpMRKrpEj4M8EGh3UMezCe8bXHYx',
+      
+      }
+    });
+      
+    })
 
     </script>
   
