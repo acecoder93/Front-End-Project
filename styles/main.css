@@ -1,27 +1,7 @@
-
-@media screen and (max-width:375px){
-    main{
-        height:70%;
-        display:flex;
-        flex-direction: column;
-        align-items: center
-    }
-
-    #captain-head-container{
-        height:40%;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #captain-head{
-        padding-top:10px;
-        height:50%
-    }
-
-    /* #captain-speech{
-        height: 50%;
-        width: 40%;
-        background-color:lightblue;
-    } */
+main{
+    background-image: url(../img/waves_background_long.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height:100%
 }
