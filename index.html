@@ -13,11 +13,9 @@
   </head>
   <body>
 
-    <header>
-
-
-    </header>
-      Setup
+      <input type="text" id ="city-input" placeholder="City">
+      <button id ="submit">Go</button>
+      
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -27,48 +25,87 @@
   
   
     <script>
-      // General EDAMAM API 
-      // $(function(){
-      //   var url = 'https://api.edamam.com/search?q=';
-      //   var type = 'chicken'; // Needs to be changed based on user input
-      //   var apiId = 'be5d1e96';
-      //   var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
-      //   var cal_min = '50'; // Needs to be changed based on user input
-      //   var cal_max = '500'; // Needs to be changed based on user input
 
-      //   $.get(url + type +'&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=10' 
-      //   + '&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free').done((result)=>{
-      //   console.log(result);
-      //   })
-      // })
-
-
-
-      // General Yelp APi
-
+      // Weather Api;
       $(function(){
-        var yelp_url = 'https://api.yelp.com/v3/businesses/search?_find_desc=Restaurants';
-        var location = 'Houston, Texas' // Based off of user input
-        var yelp_id = 'Tx5dJEhzqlcakub7bzKOWA';
-        var yelp_key = '-8PRNkPKT63Yx4ASY7q8oFe5H2kbIFj4e-YoalMHa8Stzu67xLr8ax8qqTRqv7aiM4KLQZ5b3Eh3k0jggMOyh4pf-DHSC30YC5WgZpMRKrpEj4M8EGh3UMezCe8bXHYx';
+    var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+    var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
+    var toFah = function(temp){
+        var cel = temp - 273.15
+        var fah = Math.floor(cel * 1.8 + 32)
+        return fah
+    }
 
-        $.get(url).done((result)=>{
-          console.log(result)
+    $('#submit').on('click',function(){
+        $('main').empty()
+        var userInput = $('#city-input').val()
+        var $weatherbox = $('<div>',{
+            'id': 'weatherbox',
+            'text': userInput,
         })
 
-      // })
-      
-    $(function(){
-
-      $.ajaxSetup({
-      headers:{
-        'Authorization':'Bearer -8PRNkPKT63Yx4ASY7q8oFe5H2kbIFj4e-YoalMHa8Stzu67xLr8ax8qqTRqv7aiM4KLQZ5b3Eh3k0jggMOyh4pf-DHSC30YC5WgZpMRKrpEj4M8EGh3UMezCe8bXHYx',
-      
-      }
-    });
-      
+        $.get(url + userInput + '&appid=' + apiKey)
+        .done((result)=>{
+            var $temperature = $('<div>',{
+                'id': 'temperature',
+                'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
+            })
+            var $mintemp = $('<div>',{
+                "id": 'mintemp',
+                'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
+            })
+            var $maxtemp = $('<div>',{
+                "id": 'maxtemp',
+                'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
+            })
+            var $elements = $('<div>',{
+                "id": 'elements',
+                'text':  result.weather[0].description
+            })
+            console.log(result)
+            $('main').append($weatherbox)
+            $('#weatherbox').append($temperature)
+            $('#weatherbox').append($elements)
+            $('#weatherbox').append($mintemp)
+            $('#weatherbox').append($maxtemp)
+            
+        })
     })
 
+})
+
+      // General EDAMAM API 
+      $(function(){
+        var url = 'https://api.edamam.com/search?q=';
+        var type = 'chicken'; // Needs to be changed based on user input
+        var apiId = 'be5d1e96';
+        var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
+        var cal_min = '0'; // Fixed value for minimum calories
+        var cal_max = '500'; // Needs to be changed based on user input
+
+
+        $.get(url + type +'&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=10' 
+        + '&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free').done((result)=>{
+        console.log(result);
+        })
+      })
+
+      // Future feature for restaurants and locations
+        // https://places.cit.api.here.com/places/v1/autosuggest?at=40.74917,-73.98529&q=chrysler&app_id={YOUR_APP_ID}&app_code={YOUR_APP_CODE}
+
+      // $(function(){
+      //   var places_url = 'https://places.demo.api.here.com/places/v1/categories/places';
+      //   var places_url2 = 'https://places.cit.api.here.com/places/v1/autosuggest?at=';
+      //   var app_id = 'EJdU5nn8sxHlLydgr8p6';
+      //   var app_code = 'eWkjPip9_dHnYq-y9iAQ_A';
+      //   var long_lat = '29.7604,95.3698'; // Houston Location
+      //   var user_search = 'Chuys'; // Based upon user input
+
+      //   $.get(places_url2 + long_lat + '&q=' + user_search + '&app_id=' + app_id + '&app_code=' + app_code).done((result)=>{
+      //     console.log(result);
+      //   })
+      // })
+    
     </script>
   
   
