@@ -1,33 +1,45 @@
 
 
 @media screen and (max-width: 375px){
-    header{
-        height:30%;
-        position:relative;
-    }
-    #logo{
-        height:100%;
-    }
-    #the{
-        font-size:8vh;
-    }
-    #captain{
-        font-size:14vh
-    }
-    #the-container{
-        height:30%;
-        position: absolute;
-        top: 30px;
-        left:60px
-    }
-    #captain-container{
-        height:70%;
-        position:absolute;
-        top:50px;
-    }
-    #circle-setting{
-        height:100%;
+
+    #navbar{
+        height:10%;
+        display:flex;
+        justify-content: flex-end;
         width:100%;
-        background-color: blue;
+    }
+    #gear{
+        height:100%
+    }
+    #gear img{
+        height:100%
+    }
+
+    header{
+        height:70%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+
+    #captain-head-container{
+        height:40%;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #captain-head{
+        padding-top:10px;
+        height:50%
+    }
+    #prompts{
+        height:90%;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
     }
 }

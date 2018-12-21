@@ -10,30 +10,32 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/Front-End-Project/styles/main.css">
-  <link rel="stylesheet" href="/Front-End-Project/styles/header.css">
-  <link rel="stylesheet" href="/Front-End-Project/styles/footer.css">
-  <link rel="stylesheet" href="/Front-End-Project/styles/global.css">
-  <link rel="stylesheet" href="/Front-End-Project/styles/sidenav.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/sidenav.css">
 </head>
 
 <body>
   <header>
     <div id = "navbar">
-    <div onclick="openNav2()"><div id = "circle-setting">hello</div> </div>
+      <div id = "gear" onclick="openNav2()"><img src="img/wheel2.png" alt=""> </div>
+    </div>
+    <div id = "prompts">
+      <div id="captain-head-container">
+          <img id="captain-head" src="img/captain_logo_2.png" alt="">
+        </div>
+        <div class="typewriter">
+          <h1 id="target" style="font-size:30px; text-align: center"></h1>
+        </div>
+        <div id="text-container">
+          <input type="text" id="text-input" autofocus style="border: brown 1px solid; border-radius:3px">
+          <button id="enter-button" style="border: black 1px ">Ahoy</button>
+        </div>
     </div>
   </header>
   <main>
-    <div id="captain-head-container">
-      <img id="captain-head" src="/Front-End-Project/img/captain_logo_2.png" alt="">
-    </div>
-    <div class="typewriter">
-      <h1 id="target" style="font-size:30px; text-align: center"></h1>
-    </div>
-    <div id="text-container">
-      <input type="text" id="text-input" autofocus style="border: brown 1px solid; border-radius:3px">
-      <button id="enter-button" style="border: black 1px ">Ahoy</button>
-    </div>
 
   </main>
   <div id="mySidenav2" class="sidenavright">
@@ -56,7 +58,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-  <script src="/Front-End-Project/script/index.js"></script>
+  <script src="script/index.js"></script>
 </body>
 
 </html>

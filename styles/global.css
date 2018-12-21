@@ -1,11 +1,6 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-image: url(/Front-End-Project/img/waves_background_blue_2.png);
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position: bottom;
-    position: relative;
 }
 
 
