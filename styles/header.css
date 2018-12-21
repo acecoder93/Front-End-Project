@@ -25,4 +25,9 @@
         position:absolute;
         top:50px;
     }
+    #circle-setting{
+        height:100%;
+        width:100%;
+        background-color: blue;
+    }
 }
