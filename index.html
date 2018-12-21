@@ -28,9 +28,9 @@
 
       // Weather Api;
       $(function(){
-    var url = "http://api.openweathermap.org/data/2.5/weather?q=";
-    var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
-    var toFah = function(temp){
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+        var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
+        var toFah = function(temp){
         var cel = temp - 273.15
         var fah = Math.floor(cel * 1.8 + 32)
         return fah
