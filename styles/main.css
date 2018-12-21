@@ -1,6 +1,6 @@
 main{
     background-image: url(../img/waves_background_long.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
     height:100%
