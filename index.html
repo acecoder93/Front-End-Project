@@ -148,8 +148,23 @@
               })
               let $cardbody = $('<div>', {
                 'class': 'card-body',
-                'text': 'hello world'
+                // 'text': Math.round(result.hits[ran].recipe.calories) + ' cal',
               })
+
+              // Create a unordered list with bullets for cards with content 
+              var $table = $('<ul>');
+              var $tableData1 = $('<li>', {
+                  'id' : 'Calories',
+                  'text' : Math.round(result.hits[ran].recipe.calories) + ' cal'
+              })
+              var $tableData2 = $('<li>', {
+                  'id' : 'Minutes',
+                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes'
+              })
+              $table.append($tableData1);
+              $table.append($tableData2);
+              $cardbody.append($table);
+
               $('#accordion').append($card)
               $(`#card${j}`).append($cardHeader)
               $(`#heading${j}`).append($heading)
