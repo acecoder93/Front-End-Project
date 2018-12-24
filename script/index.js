@@ -47,7 +47,7 @@ $(function () {
                 while (i < 10) {
                     i++
                     j++
-                    let ran = Math.floor(Math.random() * 100) // randomly take one recipe
+                    let ran = Math.floor(Math.random() * 99) // randomly take one recipe
                     // let $recipe = $('<div>', {
                     //   'text': result.hits[ran].recipe.label
                     // })
