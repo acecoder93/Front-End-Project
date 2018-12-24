@@ -3,6 +3,26 @@ main{
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    height:100%
+    height:auto;
+    display:flex;
+    justify-content: center;
+    align-items:center;
 }
 
+#accordion-holder{
+    background: rgba(114, 112, 112, 0.75);
+    height:80%;
+    width:80%;
+    padding-top:5%;
+    margin-top:40%;
+}
+
+#accordion{
+    width:80%;
+    display:flex; 
+    flex-direction:column; 
+    justify-content: center; 
+    align-items:center; 
+    margin-left:10%;
+    opacity:1.75
+}
