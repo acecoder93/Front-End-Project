@@ -153,16 +153,25 @@
 
               // Create a unordered list with bullets for cards with content 
               var $table = $('<ul>');
-              var $tableData1 = $('<li>', {
+                var $tableData1 = $('<img>', {
+                  'id' : 'Image',
+                  'src' : (result.hits[ran].recipe.image),
+                  'style' : 'display: block; margin-left: 0; margin-right: auto; width: 75%; background-color: gray; border: solid black 1px;',
+              })
+              var $tableData2 = $('<li>', {
                   'id' : 'Calories',
                   'text' : Math.round(result.hits[ran].recipe.calories) + ' cal'
               })
-              var $tableData2 = $('<li>', {
+              var $tableData3 = $('<li>', {
                   'id' : 'Minutes',
                   'text' : (result.hits[ran].recipe.totalTime) + ' minutes'
               })
+            
+
+
               $table.append($tableData1);
               $table.append($tableData2);
+              $table.append($tableData3);
               $cardbody.append($table);
 
               $('#accordion').append($card)
