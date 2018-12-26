@@ -1,4 +1,6 @@
-
+.typewriter{
+    height:25%
+}
 
 @media screen and (max-width: 375px){
 
@@ -20,7 +22,7 @@
         display:flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center
+        align-items: center;
     }
 
     #captain-head-container{
