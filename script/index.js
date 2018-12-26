@@ -20,8 +20,16 @@ $(function () {
         inputs.push($('#cuisine-input').val())
         ClearFields()
         count++;
-        var textque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
-        var srcText = textque[i];
+        var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
+        var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
+        var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
+        if(inputs[0] == "recipes"){
+            var srcText = recipeque[i];
+        }else if (inputs[0] == "restaurants"){
+            var srcText = restaurantque[i]
+        }else{
+            var srcText = invalidque[i]
+        }
         var l = 0;
         var result = srcText[l];
         setInterval(function () {
@@ -39,11 +47,19 @@ $(function () {
         },
             100); // the period between every character and next one, in milliseonds.
         i++
-        if (i > textque.length - 1) {
+        if (i > recipeque.length - 1 && inputs[0] == "recipes") {
             i = 0
+            inputs = []
+        } else if (i > restaurantque.length - 1 && inputs[0] == "restaurants"){
+            i = 0
+            inputs = []
+        } else if (i > invalidque.length - 1 && (inputs[0] != "restaurants" || inputs[0] != "recipes")){
+            i = 0
+            inputs = []
         }
+
         var type = inputs[2] // Needs to be changed based on user input
-        if (count == 3){
+        if (count == 3 && inputs[0] == "recipes"){
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
             .done((result) => {
                 console.log(result);
@@ -115,6 +131,7 @@ $(function () {
         // if( $('#target').is(':empty') ) {
         //     $('#target').html("Welcome to the Sea! What can I assist you with?")
         // }
+
     })
 });
 // General EDAMAM API 
