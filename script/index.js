@@ -128,10 +128,6 @@ $(function () {
                 count = 0
             })
         }
-        // if( $('#target').is(':empty') ) {
-        //     $('#target').html("Welcome to the Sea! What can I assist you with?")
-        // }
-
     })
 });
 // General EDAMAM API 
