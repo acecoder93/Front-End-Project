@@ -20,16 +20,70 @@ $(function () {
         inputs.push($('#cuisine-input').val())
         ClearFields()
         count++;
-        var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
-        var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
-        var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
+        var recipeque = ["Great, Where are you currently located?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?'];
+        var weatherque = ["Great, where are you currently located?"]
+        var restaurantque = ["Great, Where are you currently located?", 'Welcome to the Sea! What can I assist you with?'];
+        var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?'];
         if(inputs[0] == "recipes"){
             var srcText = recipeque[i];
         }else if (inputs[0] == "restaurants"){
             var srcText = restaurantque[i]
-        }else{
+        }else if (inputs[0] == "weather"){
+            var srcText = weatherque[i]
+        }
+        else{
             var srcText = invalidque[i]
         }
+
+
+    // // Weather Api;
+    // $(function(){
+    //     var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+    //     var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
+    //     var toFah = function(temp){
+    //     var cel = temp - 273.15
+    //     var fah = Math.floor(cel * 1.8 + 32)
+    //     return fah
+    // }
+
+    // $('#submit').on('click',function(){
+    //     $('main').empty()
+    //     var userInput = $('#city-input').val()
+    //     var $weatherbox = $('<div>',{
+    //         'id': 'weatherbox',
+    //         'text': userInput,
+    //     })
+
+    //     $.get(url + userInput + '&appid=' + apiKey)
+    //     .done((result)=>{
+    // var $temperature = $('<div>',{
+    // 'id': 'temperature',
+    // 'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
+    // })
+    //         var $mintemp = $('<div>',{
+    //             "id": 'mintemp',
+    //             'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
+    //         })
+    //         var $maxtemp = $('<div>',{
+    //             "id": 'maxtemp',
+    //             'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
+    //         })
+    //         var $elements = $('<div>',{
+    //             "id": 'elements',
+    //             'text':  result.weather[0].description
+    //         })
+    //         console.log(result)
+    //         $('main').append($weatherbox)
+    //         $('#weatherbox').append($temperature)
+    //         $('#weatherbox').append($elements)
+    //         $('#weatherbox').append($mintemp)
+    //         $('#weatherbox').append($maxtemp)
+
+    //     })
+    // })
+
+    // })
+
         var l = 0;
         var result = srcText[l];
         setInterval(function () {
