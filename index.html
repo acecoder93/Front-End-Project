@@ -23,7 +23,7 @@
   <div id="information-box" style="display:flex; flex-direction: column">
 
   </div>
-  <div id="accordion" style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left:10%">
+  <div id="accordion" style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-right: 8%">
   </div>
 
 
@@ -115,7 +115,7 @@
               // $('#information-box').append($recipeimg)
               let $card = $('<div>', {
                 'class': "card",
-                'style': "width:100%",
+                'style': "width:100%; background-color: rgba(211, 207, 207, 0.781);",
                 'id': 'card' + j.toString()
               })
               let $cardHeader = $('<div>', {
@@ -125,7 +125,8 @@
               })
               let $heading = $('<h5>', {
                 'class': 'mb-0',
-                'id': 'h' + j.toString()
+                'id': 'h' + j.toString(),
+                'style' : 'margin-right: 0%; padding: 0px'
               })
               let $collapse = $('<div>', {
                 // 'class': 'btn btn-link',
@@ -148,7 +149,7 @@
               })
               let $cardbody = $('<div>', {
                 'class': 'card-body',
-                'style': 'background-color: blue' // testing the color
+                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1' // testing the color
               })
 
               // Create a unordered list with bullets for cards with content 
@@ -156,7 +157,7 @@
                 var $tableData1 = $('<img>', {
                   'id' : 'Image',
                   'src' : (result.hits[ran].recipe.image),
-                  'style' : 'display: block; margin-left: 0; margin-right: auto; width: 75%; background-color: gray; border: solid black 1px;',
+                  'style' : 'display: block; opacity: 1 margin-left: 0; margin-right: auto; height: 100%; width: 100%; border: solid black 1px;',
               })
               var $tableData2 = $('<li>', {
                   'id' : 'Calories',
