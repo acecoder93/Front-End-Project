@@ -39,52 +39,52 @@
 
   <script>
     // Weather Api;
-    //       $(function(){
-    //         var url = "http://api.openweathermap.org/data/2.5/weather?q=";
-    //         var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
-    //         var toFah = function(temp){
-    //         var cel = temp - 273.15
-    //         var fah = Math.floor(cel * 1.8 + 32)
-    //         return fah
-    //     }
+          $(function(){
+            var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+            var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
+            var toFah = function(temp){
+            var cel = temp - 273.15
+            var fah = Math.floor(cel * 1.8 + 32)
+            return fah
+        }
 
-    //     $('#submit').on('click',function(){
-    //         $('main').empty()
-    //         var userInput = $('#city-input').val()
-    //         var $weatherbox = $('<div>',{
-    //             'id': 'weatherbox',
-    //             'text': userInput,
-    //         })
+        $('#submit').on('click',function(){
+            $('main').empty()
+            var userInput = $('#city-input').val()
+            var $weatherbox = $('<div>',{
+                'id': 'weatherbox',
+                'text': userInput,
+            })
 
-    //         $.get(url + userInput + '&appid=' + apiKey)
-    //         .done((result)=>{
-    // var $temperature = $('<div>',{
-    //     'id': 'temperature',
-    //     'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
-    // })
-    //             var $mintemp = $('<div>',{
-    //                 "id": 'mintemp',
-    //                 'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
-    //             })
-    //             var $maxtemp = $('<div>',{
-    //                 "id": 'maxtemp',
-    //                 'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
-    //             })
-    //             var $elements = $('<div>',{
-    //                 "id": 'elements',
-    //                 'text':  result.weather[0].description
-    //             })
-    //             console.log(result)
-    //             $('main').append($weatherbox)
-    //             $('#weatherbox').append($temperature)
-    //             $('#weatherbox').append($elements)
-    //             $('#weatherbox').append($mintemp)
-    //             $('#weatherbox').append($maxtemp)
+            $.get(url + userInput + '&appid=' + apiKey)
+            .done((result)=>{
+    var $temperature = $('<div>',{
+        'id': 'temperature',
+        'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
+    })
+                var $mintemp = $('<div>',{
+                    "id": 'mintemp',
+                    'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
+                })
+                var $maxtemp = $('<div>',{
+                    "id": 'maxtemp',
+                    'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
+                })
+                var $elements = $('<div>',{
+                    "id": 'elements',
+                    'text':  result.weather[0].description
+                })
+                console.log(result)
+                $('main').append($weatherbox)
+                $('#weatherbox').append($temperature)
+                $('#weatherbox').append($elements)
+                $('#weatherbox').append($mintemp)
+                $('#weatherbox').append($maxtemp)
 
-    //         })
-    //     })
+            })
+        })
 
-    // })
+    })
 
     // General EDAMAM API 
     $(function () {
@@ -161,28 +161,23 @@
                 'style' : 'padding: 0px'
               });
               var $tableData1 = $('<img>', {
-                'id' : 'Image',
                 'src' : (result.hits[ran].recipe.image),
                 'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; display: block;',
               })
               
               var $tableData2 = $('<li>', {
-                  'id' : 'Calories',
                   'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
                   'style': 'background-color: black; opacity: .5;'
               })
               var $tableData3 = $('<li>', {
-                  'id' : 'Minutes',
                   'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
                   'style': 'background-color: black; opacity: .5; position: absolute;'
               })
               var $tableData4 = $('<li>', {
-                  'id' : 'recipe_URL',
                   'text' : (result.hits[ran].recipe.shareAs),
                   'style': 'background-color: black; opacity: .5; position: absolute;'
               })
               var $innerDiv = $('<div>',{
-                'id' : 'innerDiv',
                 'style' : ' background-color: black; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; opacity: .2',
               });
 
