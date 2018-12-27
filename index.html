@@ -23,7 +23,7 @@
   <div id="information-box" style="display:flex; flex-direction: column">
 
   </div>
-  <div id="accordion" style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-right: 8%">
+  <div id="accordion" style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left: 2%">
   </div>
 
 
@@ -124,12 +124,13 @@
                 'id': 'heading' + j.toString()
               })
               let $heading = $('<h5>', {
-                'class': 'mb-0',
+                'class': 'mb-0; mr-0',
                 'id': 'h' + j.toString(),
                 'style' : 'margin-right: 0%; padding: 0px'
               })
               let $collapse = $('<div>', {
                 // 'class': 'btn btn-link',
+                'class' : 'cardTitle',
                 'style': 'width: 80%; text-align: center; display: inline-block',
                 'data-toggle': 'collapse',
                 'data-target': '#collapse' + j.toString(),
@@ -139,7 +140,8 @@
               })
               let $buttonx = $('<button>', {
                 'class': 'x',
-                'text': 'x'
+                'text': 'x',
+                'style' : 'padding-left: 2px;'
               })
               let $box2 = $('<div>', {
                 'id': 'collapse' + j.toString(),
@@ -149,16 +151,19 @@
               })
               let $cardbody = $('<div>', {
                 'class': 'card-body',
-                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1' // testing the color
+                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1; margin: 0px; padding: 0px' // testing the color
               })
 
               // Create a unordered list with bullets for cards with content 
-              var $table = $('<ul>');
+              var $table = $('<ul>', {
+                'style' : 'padding: 0px'
+              });
                 var $tableData1 = $('<img>', {
                   'id' : 'Image',
                   'src' : (result.hits[ran].recipe.image),
-                  'style' : 'display: block; opacity: 1 margin-left: 0; margin-right: auto; height: 100%; width: 100%; border: solid black 1px;',
+                  'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%;',
               })
+              
               var $tableData2 = $('<li>', {
                   'id' : 'Calories',
                   'text' : Math.round(result.hits[ran].recipe.calories) + ' cal'
@@ -169,8 +174,8 @@
               })
             
               $table.append($tableData1);
-              $table.append($tableData2);
-              $table.append($tableData3);
+              // $table.append($tableData2);
+              // $table.append($tableData3);
               $cardbody.append($table);
 
               $('#accordion').append($card)
