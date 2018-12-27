@@ -23,7 +23,7 @@
   <div id="information-box" style="display:flex; flex-direction: column">
 
   </div>
-  <div id="accordion"  style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left: 2%; margin-top: 5%">
+  <div id="accordion"  style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left: 10%; margin-top: 5%">
   </div>
 
 
@@ -169,17 +169,17 @@
               var $tableData2 = $('<li>', {
                   'id' : 'Calories',
                   'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
-                  'style': 'background-color: black; opacity: .5; z-index:1'
+                  'style': 'background-color: black; opacity: .5;'
               })
               var $tableData3 = $('<li>', {
                   'id' : 'Minutes',
                   'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
-                  'style': 'background-color: black; opacity: .5; position: absolute; z-index:-1'
+                  'style': 'background-color: black; opacity: .5; position: absolute;'
               })
               var $tableData4 = $('<li>', {
                   'id' : 'recipe_URL',
                   'text' : (result.hits[ran].recipe.shareAs),
-                  'style': 'background-color: black; opacity: .5; position: absolute; z-index:-1'
+                  'style': 'background-color: black; opacity: .5; position: absolute;'
               })
               var $innerDiv = $('<div>',{
                 'id' : 'innerDiv',
@@ -194,6 +194,8 @@
               $table2.append($tableData2);
               $table2.append($tableData3);
               $table2.append($tableData4);
+
+              console.log($table2);
               // NEED HELP appending table to overlay**
               $(`innerDiv`).append($table2);
 
