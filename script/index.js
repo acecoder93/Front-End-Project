@@ -48,15 +48,24 @@ $(function () {
             100); // the period between every character and next one, in milliseonds.
         i++
         if (i > recipeque.length - 1 && inputs[0] == "recipes") {
+            console.log(inputs)
             i = 0
             inputs = []
+            console.log(inputs)
+            count = 0
         } else if (i > restaurantque.length - 1 && inputs[0] == "restaurants"){
+            console.log(inputs)
             i = 0
             inputs = []
-        } else if (i > invalidque.length - 1 && (inputs[0] != "restaurants" || inputs[0] != "recipes")){
+            console.log(inputs)
+            count = 0
+        } else if (i > invalidque.length - 1 && (inputs[0] != "restaurants" && inputs[0] != "recipes" )){
+            console.log(inputs)
             i = 0
             inputs = []
-        }
+            console.log(inputs)
+            count = 0
+        } 
 
         var type = inputs[2] // Needs to be changed based on user input
         if (count == 3 && inputs[0] == "recipes"){
@@ -125,7 +134,7 @@ $(function () {
                 }
                 window.location = '#accordion'
                 $('#enter-button').prop("disabled", false);
-                count = 0
+                // count = 0
             })
         }
     })
