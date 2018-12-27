@@ -18,12 +18,12 @@
 
 <body>
 
-  <input type="text" id="cuisine-input" placeholder="cuisine">
-  <button id="submit">Go</button>
+  <input style = "padding-left: 10px" type="text" id="cuisine-input" placeholder="cuisine">
+  <button id="submit" style = "background-color:rgba(124, 166, 230, 0.781); width: 60px;">Go</button>
   <div id="information-box" style="display:flex; flex-direction: column">
 
   </div>
-  <div id="accordion" style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left: 2%">
+  <div id="accordion"  style ="width:80vw;display:flex; flex-direction:column; justify-content: center; align-items:center; margin-left: 2%; margin-top: 5%">
   </div>
 
 
@@ -115,12 +115,12 @@
               // $('#information-box').append($recipeimg)
               let $card = $('<div>', {
                 'class': "card",
-                'style': "width:100%; background-color: rgba(211, 207, 207, 0.781);",
+                'style': "width:100%; background-image: linear-gradient(rgba(229, 230, 231, 0.781), rgba(124, 166, 230, 0.781));",
                 'id': 'card' + j.toString()
               })
               let $cardHeader = $('<div>', {
                 'class': 'card-header',
-                'style': 'width:100%; padding: 0px; display: inline',
+                'style': 'width:100%; padding: 0px; display: inline;',
                 'id': 'heading' + j.toString()
               })
               let $heading = $('<h5>', {
@@ -130,8 +130,7 @@
               })
               let $collapse = $('<div>', {
                 // 'class': 'btn btn-link',
-                'class' : 'cardTitle',
-                'style': 'width: 80%; text-align: center; display: inline-block',
+                'style': 'width: 80%; text-align: left; display: inline-block; padding-left: 10px ',
                 'data-toggle': 'collapse',
                 'data-target': '#collapse' + j.toString(),
                 'aria-expanded': 'true',
@@ -141,7 +140,7 @@
               let $buttonx = $('<button>', {
                 'class': 'x',
                 'text': 'x',
-                'style' : 'padding-left: 2px;'
+                'style' : 'text-align: right; margin-left: 15px; position: absolute; right: 20px;'
               })
               let $box2 = $('<div>', {
                 'id': 'collapse' + j.toString(),
@@ -161,18 +160,29 @@
                 var $tableData1 = $('<img>', {
                   'id' : 'Image',
                   'src' : (result.hits[ran].recipe.image),
-                  'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%;',
+                  'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; z-index: -1;',
               })
               
               var $tableData2 = $('<li>', {
                   'id' : 'Calories',
-                  'text' : Math.round(result.hits[ran].recipe.calories) + ' cal'
+                  'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
+                  'style': 'background-color: black; opacity: .5; z-index:1'
               })
               var $tableData3 = $('<li>', {
                   'id' : 'Minutes',
-                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes'
+                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
+                  'style': 'background-color: black; opacity: .5; position: absolute; z-index:-1'
+
               })
-            
+
+              var $overlay = $('<div>', {
+                'id': 'InformationOverlay',
+                'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
+                'style' : 'background-color: black; height: 100px; width: 100px; position: relative; z-index: 1'
+              })
+
+              $tableData1.append($overlay);
+        
               $table.append($tableData1);
               // $table.append($tableData2);
               // $table.append($tableData3);

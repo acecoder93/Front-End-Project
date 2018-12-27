@@ -1,10 +1,12 @@
-.cardTitle{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 50px
+#accordion{
+    font-family: 'Open Sans';
+    font-size: 3px;
 
 
 }
 
 .style{
-background-color: rgba(211, 207, 207, 0.781)
+background-color: rgba(229, 230, 231, 0.781);
 }
+
+
