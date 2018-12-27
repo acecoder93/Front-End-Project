@@ -150,17 +150,20 @@
               })
               let $cardbody = $('<div>', {
                 'class': 'card-body',
-                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1; margin: 0px; padding: 0px' // testing the color
+                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1; margin: 0px; padding: 0px; position: relative' // testing the color
               })
 
-              // Create a unordered list with bullets for cards with content 
+              // Setup for cards and overlay
               var $table = $('<ul>', {
                 'style' : 'padding: 0px'
               });
-                var $tableData1 = $('<img>', {
-                  'id' : 'Image',
-                  'src' : (result.hits[ran].recipe.image),
-                  'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; z-index: -1;',
+              var $table2 = $('<ul>', {
+                'style' : 'padding: 0px'
+              });
+              var $tableData1 = $('<img>', {
+                'id' : 'Image',
+                'src' : (result.hits[ran].recipe.image),
+                'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; display: block;',
               })
               
               var $tableData2 = $('<li>', {
@@ -172,17 +175,23 @@
                   'id' : 'Minutes',
                   'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
                   'style': 'background-color: black; opacity: .5; position: absolute; z-index:-1'
-
               })
-
-              var $overlay = $('<div>', {
-                'id': 'InformationOverlay',
-                'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
-                'style' : 'background-color: black; height: 100px; width: 100px; position: relative; z-index: 1'
+              var $tableData4 = $('<li>', {
+                  'id' : 'recipe_URL',
+                  'text' : (result.hits[ran].recipe.shareAs),
+                  'style': 'background-color: black; opacity: .5; position: absolute; z-index:-1'
               })
+              var $innerDiv = $('<div>',{
+                'id' : 'innerDiv',
+                'style' : ' background-color: black; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; opacity: .2',
+              });
 
-              $tableData1.append($overlay);
-        
+              $table2.append($tableData2);
+              $table2.append($tableData3);
+              $table2.append($tableData4);
+              $innerDiv.append($table2);
+
+              $cardbody.append($innerDiv);
               $table.append($tableData1);
               // $table.append($tableData2);
               // $table.append($tableData3);
