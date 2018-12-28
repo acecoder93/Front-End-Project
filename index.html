@@ -100,7 +100,7 @@
         // var cal_max = '500'; // Needs to be changed based on user input
         $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
           .done((result) => {
-            // console.log(result);
+            console.log(result);
             while (i < 10) {
               i++
               j++
@@ -171,14 +171,18 @@
                   'text' : 'MINUTES: ' + (result.hits[ran].recipe.totalTime),
 
               })
-              var $tableData3 = $('<a>', {
+              var $tableData3 = $('<li>', {
+                  'text' : 'YIELD: ' + (result.hits[ran].recipe.yield),
+
+              })
+              var $tableData4 = $('<a>', {
                   'text' : 'RECIPE',
                   'href' : result.hits[ran].recipe.shareAs,
                   'style' : 'color: white; text-decoration: underline; text-align: center'
 
               })
               var $innerDiv = $('<div>',{
-                'style' : ' background-color: rgba(0,0,0,.2); position: absolute; top: 10%; left: 10%; width: 80%; height: 30%',
+                'style' : ' background-color: rgba(0,0,0,.3); position: absolute; top: 10%; left: 10%; width: 80%; height: 35%',
               });
         
             
@@ -190,6 +194,7 @@
               $table.append($tableData1);
               $table.append($tableData2);
               $table.append($tableData3);
+              $table.append($tableData4);
 
               $cardbody.append($innerDiv);
               $innerDiv.append($table);
