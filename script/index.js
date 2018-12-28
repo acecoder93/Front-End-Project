@@ -4,14 +4,15 @@ $(function () {
 
         document.getElementById("cuisine-input").value = "";
     }  
-    var i = 0;
-    var inputs = []
-    var count = 0
+    var i = 0; //used for index of each textque.
+    var inputs = [] //used to stores user inputs
+    var count = 0  //used to determine when the textque is completed
     var url = 'https://api.edamam.com/search?q=';
     var apiId = 'be5d1e96';
     var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
-    var k = $('.card').length;
-    var j = Math.floor(Math.random() * 100000)
+    var k = $('.card').length; //helps loop determine length of our accordion list
+    var j = Math.floor(Math.random() * 100000)// used to provide unique id's to each of the cards of the accordion
+
     // var cal_min = '0'; // Fixed value for minimum calories
     // var cal_max = '500'; // Needs to be changed based on user input
 
@@ -30,7 +31,7 @@ $(function () {
         }else{
             var srcText = invalidque[i]
         }
-        var l = 0;
+        var l = 0;//used to iterate through each letter of a string
         var result = srcText[l];
         setInterval(function () {
             if (l== srcText.length - 1) {
@@ -47,6 +48,8 @@ $(function () {
         },
             100); // the period between every character and next one, in milliseonds.
         i++
+        
+        //resets user inputs
         if (i > recipeque.length - 1 && inputs[0] == "recipes") {
             console.log(inputs)
             i = 0
@@ -66,9 +69,84 @@ $(function () {
             console.log(inputs)
             count = 0
         } 
-
-        var type = inputs[2] // Needs to be changed based on user input
         if (count == 3 && inputs[0] == "recipes"){
+            var $recipeInputContainer = $('<div>',{
+                'id': 'recipeInputContainer'
+            })
+            var $recipeInput = $('<input>',{
+                'type': "text",
+                'style': 'border: brown 1px solid; border-radius:3px',
+                'id': 'moreRecipeInput'
+            })
+            var $recipeinputButton = $('<button>',{
+                'id':'recipe-button',
+                'style':'border: black 1px solid',
+                'text': 'More'
+            })
+            $('#accordion').append($recipeInputContainer)
+            $('#recipeInputContainer').append($recipeInput)
+            $('#recipeInputContainer').append($recipeinputButton)
+            $('#recipe-button').on("click", function () {
+                k = $('.card').length
+                var type = $('#moreRecipeInput').val()
+                $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
+                .done((result) => {
+                    console.log(result);
+                    while (k < 10) {
+                        k++
+                        j++
+                        let ran = Math.floor(Math.random() * 99) // randomly take one recipe
+                        let $card = $('<div>', {
+                            'class': "card",
+                            'style': "width:100%",
+                            'id': 'card' + j.toString()
+                        })
+                        let $cardHeader = $('<div>', {
+                            'class': 'card-header',
+                            'style': 'width:100%; padding: 0px; display: inline',
+                            'id': 'heading' + j.toString()
+                        })
+                        let $heading = $('<h5>', {
+                            'class': 'mb-0',
+                            'id': 'h' + j.toString()
+                        })
+                        let $collapse = $('<div>', {
+                            // 'class': 'btn btn-link',
+                            'style': 'width: 80%; text-align: center; display: inline-block',
+                            'data-toggle': 'collapse',
+                            'data-target': '#collapse' + j.toString(),
+                            'aria-expanded': 'true',
+                            'aria-controls': 'collapse' + j.toString(),
+                            'text': result.hits[ran].recipe.label
+                        })
+                        let $buttonx = $('<button>', {
+                            'class': 'x',
+                            'text': 'x'
+                        })
+                        let $box2 = $('<div>', {
+                            'id': 'collapse' + j.toString(),
+                            'class': 'collapse', // show
+                            'aria-labelledby': 'heading' + j.toString(),
+                            'data-parent': '#accordion'
+                        })
+                        let $cardbody = $('<div>', {
+                            'class': 'card-body',
+                            'text': 'hello world'
+                        })
+                        $('#accordion').append($card)
+                        $(`#card${j}`).append($cardHeader)
+                        $(`#heading${j}`).append($heading)
+                        $(`#h${j}`).append($collapse)
+                        $(`#h${j}`).append($buttonx)
+                        $(`#card${j}`).append($box2)
+                        $(`#collapse${j}`).append($cardbody)
+                        $(".x").on('click', function () {
+                            $(this).parents('.card').get(0).remove()
+                        });
+                    }
+                })
+            })
+            var type = inputs[2] 
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
             .done((result) => {
                 console.log(result);
@@ -134,92 +212,10 @@ $(function () {
                 }
                 window.location = '#accordion'
                 $('#enter-button').prop("disabled", false);
-                // count = 0
             })
         }
     })
 });
-// General EDAMAM API 
-// $(function () {
-
-//     $('#submit').on('click', function () {
-//         var url = 'https://api.edamam.com/search?q=';
-//         var type = $('#cuisine-input').val(); // Needs to be changed based on user input
-//         var apiId = 'be5d1e96';
-//         var apiKey = '0c29a5e9ce187319b53367b2cc67256f';
-//         var i = $('.card').length;
-//         var j = Math.floor(Math.random() * 100000)
-//         // var cal_min = '0'; // Fixed value for minimum calories
-//         // var cal_max = '500'; // Needs to be changed based on user input
-//         $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
-//             .done((result) => {
-//                 console.log(result);
-//                 while (i < 10) {
-//                     i++
-//                     j++
-//                     let ran = Math.floor(Math.random() * 99) // randomly take one recipe
-//                     // let $recipe = $('<div>', {
-//                     //   'text': result.hits[ran].recipe.label
-//                     // })
-//                     // let $recipeimg = $('<img>', {
-//                     //   'src': result.hits[ran].recipe.image
-//                     // })
-//                     // $('#information-box').append($recipe)
-//                     // $('#information-box').append($recipeimg)
-//                     let $card = $('<div>', {
-//                         'class': "card",
-//                         'style': "width:100%",
-//                         'id': 'card' + j.toString()
-//                     })
-//                     let $cardHeader = $('<div>', {
-//                         'class': 'card-header',
-//                         'style': 'width:100%; padding: 0px; display: inline',
-//                         'id': 'heading' + j.toString()
-//                     })
-//                     let $heading = $('<h5>', {
-//                         'class': 'mb-0',
-//                         'id': 'h' + j.toString()
-//                     })
-//                     let $collapse = $('<div>', {
-//                         // 'class': 'btn btn-link',
-//                         'style': 'width: 80%; text-align: center; display: inline-block',
-//                         'data-toggle': 'collapse',
-//                         'data-target': '#collapse' + j.toString(),
-//                         'aria-expanded': 'true',
-//                         'aria-controls': 'collapse' + j.toString(),
-//                         'text': result.hits[ran].recipe.label
-//                     })
-//                     let $buttonx = $('<button>', {
-//                         'class': 'x',
-//                         'text': 'x'
-//                     })
-//                     let $box2 = $('<div>', {
-//                         'id': 'collapse' + j.toString(),
-//                         'class': 'collapse', // show
-//                         'aria-labelledby': 'heading' + j.toString(),
-//                         'data-parent': '#accordion'
-//                     })
-//                     let $cardbody = $('<div>', {
-//                         'class': 'card-body',
-//                         'text': 'hello world'
-//                     })
-//                     $('#accordion').append($card)
-//                     $(`#card${j}`).append($cardHeader)
-//                     $(`#heading${j}`).append($heading)
-//                     $(`#h${j}`).append($collapse)
-//                     $(`#h${j}`).append($buttonx)
-//                     $(`#card${j}`).append($box2)
-//                     $(`#collapse${j}`).append($cardbody)
-//                     $(".x").on('click', function () {
-//                         $(this).parents('.card').get(0).remove()
-//                     });
-//                 }
-//                 window.location = '#accordion'
-//             })
-//     })
-// })
-
-
 
 
 
