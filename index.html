@@ -100,7 +100,7 @@
         // var cal_max = '500'; // Needs to be changed based on user input
         $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
           .done((result) => {
-            console.log(result);
+            // console.log(result);
             while (i < 10) {
               i++
               j++
@@ -161,22 +161,24 @@
               })
 
               var $table = $('<ul>', {
-                'style' : 'display: block; color: white; padding: 0px'
+                'style' : 'display: block; color: white; padding-left: 20px;'
               });
               
               var $tableData1 = $('<li>', {
-                  'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
+                  'text' : 'CAL COUNT: ' + Math.round(result.hits[ran].recipe.calories),
               })
               var $tableData2 = $('<li>', {
-                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
+                  'text' : 'MINUTES: ' + (result.hits[ran].recipe.totalTime),
 
               })
-              var $tableData3 = $('<li>', {
-                  'text' : (result.hits[ran].recipe.shareAs),
+              var $tableData3 = $('<a>', {
+                  'text' : 'RECIPE',
+                  'href' : result.hits[ran].recipe.shareAs,
+                  'style' : 'color: white; text-decoration: underline; text-align: center'
 
               })
               var $innerDiv = $('<div>',{
-                'style' : ' background-color: rgba(0,0,0,.2); position: absolute; top: 10%; left: 10%; width: 80%; height: 80%',
+                'style' : ' background-color: rgba(0,0,0,.2); position: absolute; top: 10%; left: 10%; width: 80%; height: 30%',
               });
         
             
