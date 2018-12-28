@@ -38,53 +38,53 @@
 
 
   <script>
-    // Weather Api;
-          $(function(){
-            var url = "http://api.openweathermap.org/data/2.5/weather?q=";
-            var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
-            var toFah = function(temp){
-            var cel = temp - 273.15
-            var fah = Math.floor(cel * 1.8 + 32)
-            return fah
-        }
+    // // Weather Api;
+    //       $(function(){
+    //         var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+    //         var apiKey = "ad8af1d7fbacdeceed6e31526ea1682a";
+    //         var toFah = function(temp){
+    //         var cel = temp - 273.15
+    //         var fah = Math.floor(cel * 1.8 + 32)
+    //         return fah
+    //     }
 
-        $('#submit').on('click',function(){
-            $('main').empty()
-            var userInput = $('#city-input').val()
-            var $weatherbox = $('<div>',{
-                'id': 'weatherbox',
-                'text': userInput,
-            })
+    //     $('#submit').on('click',function(){
+    //         $('main').empty()
+    //         var userInput = $('#city-input').val()
+    //         var $weatherbox = $('<div>',{
+    //             'id': 'weatherbox',
+    //             'text': userInput,
+    //         })
 
-            $.get(url + userInput + '&appid=' + apiKey)
-            .done((result)=>{
-    var $temperature = $('<div>',{
-        'id': 'temperature',
-        'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
-    })
-                var $mintemp = $('<div>',{
-                    "id": 'mintemp',
-                    'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
-                })
-                var $maxtemp = $('<div>',{
-                    "id": 'maxtemp',
-                    'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
-                })
-                var $elements = $('<div>',{
-                    "id": 'elements',
-                    'text':  result.weather[0].description
-                })
-                console.log(result)
-                $('main').append($weatherbox)
-                $('#weatherbox').append($temperature)
-                $('#weatherbox').append($elements)
-                $('#weatherbox').append($mintemp)
-                $('#weatherbox').append($maxtemp)
+    //         $.get(url + userInput + '&appid=' + apiKey)
+    //         .done((result)=>{
+    // var $temperature = $('<div>',{
+    //     'id': 'temperature',
+    //     'text': toFah(result.main.temp) + String.fromCharCode(176) + "F"
+    // })
+    //             var $mintemp = $('<div>',{
+    //                 "id": 'mintemp',
+    //                 'text': 'Min Temp: ' + toFah(result.main.temp_min) + String.fromCharCode(176) + "F"
+    //             })
+    //             var $maxtemp = $('<div>',{
+    //                 "id": 'maxtemp',
+    //                 'text': 'Max Temp: ' + toFah(result.main.temp_max) + String.fromCharCode(176) + "F"
+    //             })
+    //             var $elements = $('<div>',{
+    //                 "id": 'elements',
+    //                 'text':  result.weather[0].description
+    //             })
+    //             console.log(result)
+    //             $('main').append($weatherbox)
+    //             $('#weatherbox').append($temperature)
+    //             $('#weatherbox').append($elements)
+    //             $('#weatherbox').append($mintemp)
+    //             $('#weatherbox').append($maxtemp)
 
-            })
-        })
+    //         })
+    //     })
 
-    })
+    // })
 
     // General EDAMAM API 
     $(function () {
@@ -154,49 +154,44 @@
               })
 
               // Setup for cards and overlay
-              var $table = $('<ul>', {
-                'style' : 'padding: 0px'
-              });
-              var $table2 = $('<ul>', {
-                'style' : 'padding: 0px'
-              });
-              var $tableData1 = $('<img>', {
+         
+              var $cardBackground = $('<img>', {
                 'src' : (result.hits[ran].recipe.image),
-                'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; display: block;',
+                'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; display: block; opacity: .8',
               })
+
+              var $table = $('<ul>', {
+                'style' : 'display: block; color: white; padding: 0px'
+              });
               
-              var $tableData2 = $('<li>', {
+              var $tableData1 = $('<li>', {
                   'text' : Math.round(result.hits[ran].recipe.calories) + ' cal',
-                  'style': 'background-color: black; opacity: .5;'
+              })
+              var $tableData2 = $('<li>', {
+                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
+
               })
               var $tableData3 = $('<li>', {
-                  'text' : (result.hits[ran].recipe.totalTime) + ' minutes',
-                  'style': 'background-color: black; opacity: .5; position: absolute;'
-              })
-              var $tableData4 = $('<li>', {
                   'text' : (result.hits[ran].recipe.shareAs),
-                  'style': 'background-color: black; opacity: .5; position: absolute;'
+
               })
               var $innerDiv = $('<div>',{
-                'style' : ' background-color: black; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; opacity: .2',
+                'style' : ' background-color: rgba(0,0,0,.2); position: absolute; top: 10%; left: 10%; width: 80%; height: 80%',
               });
-
+        
+            
+              // Setting up card layout (image and overlay)
+              // $table.append($tableData1)
               
-              // Setting up image as card background
+              $cardbody.append($cardBackground);
+
               $table.append($tableData1);
+              $table.append($tableData2);
+              $table.append($tableData3);
 
-              // Setting up data that will be in overlay
-              $table2.append($tableData2);
-              $table2.append($tableData3);
-              $table2.append($tableData4);
-
-              console.log($table2);
-              // NEED HELP appending table to overlay**
-              $(`innerDiv`).append($table2);
-
-              
               $cardbody.append($innerDiv);
-              $cardbody.append($table);
+              $innerDiv.append($table);
+
 
               $('#accordion').append($card)
               $(`#card${j}`).append($cardHeader)
