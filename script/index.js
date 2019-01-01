@@ -5,7 +5,7 @@ $(function () {
         document.getElementById("cuisine-input").value = "";
     }  
     var i = 0; //used for index of each textque.
-    var inputs = [] //used to stores user inputs
+    var inputs = [] //used to stores user inputs.
     var count = 0  //used to determine when the textque is completed
     var url = 'https://api.edamam.com/search?q=';
     var apiId = 'be5d1e96';
@@ -83,6 +83,11 @@ $(function () {
                 'style':'border: black 1px solid',
                 'text': 'More'
             })
+            var $randomButton = $('<button>',{
+                'id':'random-button',
+                'style':'border: black 1px solid',
+                'text': `I Can't decide!`
+            })
             $('#accordion').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
             $('#recipeInputContainer').append($recipeinputButton)
@@ -133,6 +138,7 @@ $(function () {
                             'class': 'card-body',
                             'text': 'hello world'
                         })
+                        recipeList.push('card' + j.toString())
                         $('#accordion').append($card)
                         $(`#card${j}`).append($cardHeader)
                         $(`#heading${j}`).append($heading)
@@ -199,6 +205,7 @@ $(function () {
                         'class': 'card-body',
                         'text': 'hello world'
                     })
+                    recipeList.push(result.hits[ran].recipe.label)
                     $('#accordion').append($card)
                     $(`#card${j}`).append($cardHeader)
                     $(`#heading${j}`).append($heading)
@@ -212,6 +219,14 @@ $(function () {
                 }
                 window.location = '#accordion'
                 $('#enter-button').prop("disabled", false);
+            })
+            $('#accordion').append($randomButton)
+            $('#random-button').on("click", function () {
+                let x = Math.floor(Math.random() * 10)
+                let $cards = $('.card')
+                let id = $cards[x-1].id
+                let nums = id.replace(/[a-z]/gi, '') 
+                $(`#collapse${nums}`).removeClass('collapse')
             })
         }
     })
