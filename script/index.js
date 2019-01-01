@@ -138,7 +138,6 @@ $(function () {
                             'class': 'card-body',
                             'text': 'hello world'
                         })
-                        recipeList.push('card' + j.toString())
                         $('#accordion').append($card)
                         $(`#card${j}`).append($cardHeader)
                         $(`#heading${j}`).append($heading)
@@ -205,7 +204,6 @@ $(function () {
                         'class': 'card-body',
                         'text': 'hello world'
                     })
-                    recipeList.push(result.hits[ran].recipe.label)
                     $('#accordion').append($card)
                     $(`#card${j}`).append($cardHeader)
                     $(`#heading${j}`).append($heading)
@@ -222,9 +220,12 @@ $(function () {
             })
             $('#accordion').append($randomButton)
             $('#random-button').on("click", function () {
-                let x = Math.floor(Math.random() * 10)
+                var length = $('.card').length;
+                console.log(length)
+                let x = Math.floor(Math.random() * length)
+                console.log(x)
                 let $cards = $('.card')
-                let id = $cards[x-1].id
+                let id = $cards[x].id
                 let nums = id.replace(/[a-z]/gi, '') 
                 $(`#collapse${nums}`).removeClass('collapse')
             })
