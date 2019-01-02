@@ -3,7 +3,7 @@ $(function () {
     function ClearFields() {
 
         document.getElementById("cuisine-input").value = "";
-    }  
+    }
     var i = 0; //used for index of each textque.
     var inputs = [] //used to stores user inputs.
     var count = 0  //used to determine when the textque is completed
@@ -21,20 +21,20 @@ $(function () {
         inputs.push($('#cuisine-input').val())
         ClearFields()
         count++;
-        var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
+        var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!", 'Welcome to the Sea! What can I assist you with?']
         var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
         var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
-        if(inputs[0] == "recipes"){
+        if (inputs[0] == "recipes") {
             var srcText = recipeque[i];
-        }else if (inputs[0] == "restaurants"){
+        } else if (inputs[0] == "restaurants") {
             var srcText = restaurantque[i]
-        }else{
+        } else {
             var srcText = invalidque[i]
         }
         var l = 0;//used to iterate through each letter of a string
         var result = srcText[l];
         setInterval(function () {
-            if (l== srcText.length - 1) {
+            if (l == srcText.length - 1) {
                 clearInterval(this);
                 return;
             };
@@ -44,11 +44,11 @@ $(function () {
             if (srcText.length == result.length) {
                 $('#enter-button').prop("disabled", false);
             }
-            
+
         },
             100); // the period between every character and next one, in milliseonds.
         i++
-        
+
         //resets user inputs
         if (i > recipeque.length - 1 && inputs[0] == "recipes") {
             console.log(inputs)
@@ -56,36 +56,36 @@ $(function () {
             inputs = []
             console.log(inputs)
             count = 0
-        } else if (i > restaurantque.length - 1 && inputs[0] == "restaurants"){
+        } else if (i > restaurantque.length - 1 && inputs[0] == "restaurants") {
             console.log(inputs)
             i = 0
             inputs = []
             console.log(inputs)
             count = 0
-        } else if (i > invalidque.length - 1 && (inputs[0] != "restaurants" && inputs[0] != "recipes" )){
+        } else if (i > invalidque.length - 1 && (inputs[0] != "restaurants" && inputs[0] != "recipes")) {
             console.log(inputs)
             i = 0
             inputs = []
             console.log(inputs)
             count = 0
-        } 
-        if (count == 3 && inputs[0] == "recipes"){
-            var $recipeInputContainer = $('<div>',{
+        }
+        if (count == 3 && inputs[0] == "recipes") {
+            var $recipeInputContainer = $('<div>', {
                 'id': 'recipeInputContainer'
             })
-            var $recipeInput = $('<input>',{
+            var $recipeInput = $('<input>', {
                 'type': "text",
                 'style': 'border: brown 1px solid; border-radius:3px',
                 'id': 'moreRecipeInput'
             })
-            var $recipeinputButton = $('<button>',{
-                'id':'recipe-button',
-                'style':'border: black 1px solid',
+            var $recipeinputButton = $('<button>', {
+                'id': 'recipe-button',
+                'style': 'border: black 1px solid',
                 'text': 'More'
             })
-            var $randomButton = $('<button>',{
-                'id':'random-button',
-                'style':'border: black 1px solid',
+            var $randomButton = $('<button>', {
+                'id': 'random-button',
+                'style': 'border: black 1px solid',
                 'text': `I Can't decide!`
             })
             $('#accordion').append($recipeInputContainer)
@@ -95,29 +95,144 @@ $(function () {
                 k = $('.card').length
                 var type = $('#moreRecipeInput').val()
                 $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
+                    .done((result) => {
+                        console.log(result);
+                        while (k < 10) {
+                            k++
+                            j++
+                            let ran = Math.floor(Math.random() * 99) // randomly take one recipe
+
+                            let $card = $('<div>', {
+                                'class': "card",
+                                'id': 'card' + j.toString()
+                            })
+                            let $cardHeader = $('<div>', {
+                                'class': 'card-header',
+                                'id': 'heading' + j.toString()
+                            })
+                            let $heading = $('<h5>', {
+                                'class': 'mb-0; mr-0',
+                                'id': 'h' + j.toString(),
+                                'style': 'margin-right: 0%; padding: 0px'
+                            })
+                            let $collapse = $('<div>', {
+                                // 'class': 'btn btn-link',
+                                'class': 'collapse-col',
+                                'data-toggle': 'collapse',
+                                'data-target': '#collapse' + j.toString(),
+                                'aria-expanded': 'true',
+                                'aria-controls': 'collapse' + j.toString(),
+                                'text': result.hits[ran].recipe.label
+                            })
+                            let $buttonx = $('<button>', {
+                                'class': 'x',
+                                'text': 'x',
+                                'style': 'text-align: right; margin-left: 15px; position: absolute; right: 20px;'
+                            })
+                            let $box2 = $('<div>', {
+                                'id': 'collapse' + j.toString(),
+                                'class': 'collapse', // show
+                                'aria-labelledby': 'heading' + j.toString(),
+                                'data-parent': '#accordion'
+                            })
+                            let $cardbody = $('<div>', {
+                                'class': 'card-body',
+                            })
+
+                            // Setup for cards and overlay
+
+                            var $cardBackground = $('<img>', {
+                                'class': 'cardBackground',
+                                'src': (result.hits[ran].recipe.image),
+                            })
+
+                            var $table = $('<ul>', {
+                                'class': 'tableInfo'
+                            });
+
+                            var $tableData1 = $('<li>', {
+                                'class': 'list-item',
+                                'text': 'CAL COUNT: ' + Math.round(result.hits[ran].recipe.calories),
+                            })
+                            var $tableData2 = $('<li>', {
+                                'class': 'list-item',
+                                'text': 'MINUTES: ' + (result.hits[ran].recipe.totalTime),
+
+                            })
+                            var $tableData3 = $('<li>', {
+                                'class': 'list-item',
+                                'text': 'YIELD: ' + (result.hits[ran].recipe.yield),
+
+                            })
+                            var $tableData4 = $('<a>', {
+                                'class': 'recipe_style',
+                                'text': 'RECIPE',
+                                'href': result.hits[ran].recipe.shareAs,
+                            })
+                            var $innerDiv = $('<div>', {
+                                'class': 'overlayInfo'
+                            });
+
+
+                            // Setting up card layout (image and overlay)
+                            // $table.append($tableData1)
+
+                            $cardbody.append($cardBackground);
+
+                            $table.append($tableData1);
+                            $table.append($tableData2);
+                            $table.append($tableData3);
+                            $table.append($tableData4);
+
+                            $cardbody.append($innerDiv);
+                            $innerDiv.append($table);
+
+                            $('#accordion').append($card)
+                            $(`#card${j}`).append($cardHeader)
+                            $(`#heading${j}`).append($heading)
+                            $(`#h${j}`).append($collapse)
+                            $(`#h${j}`).append($buttonx)
+                            $(`#card${j}`).append($box2)
+                            $(`#collapse${j}`).append($cardbody)
+                            $(".x").on('click', function () {
+                                $(this).parents('.card').get(0).remove()
+                            });
+                        }
+                    })
+            })
+            var type = inputs[2]
+            $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                 .done((result) => {
                     console.log(result);
                     while (k < 10) {
                         k++
                         j++
                         let ran = Math.floor(Math.random() * 99) // randomly take one recipe
+                        // let $recipe = $('<div>', {
+                        //   'text': result.hits[ran].recipe.label
+                        // })
+                        // let $recipeimg = $('<img>', {
+                        //   'src': result.hits[ran].recipe.image
+                        // })
+                        // $('#information-box').append($recipe)
+                        // $('#information-box').append($recipeimg)
+
                         let $card = $('<div>', {
                             'class': "card",
-                            'style': "width:100%",
                             'id': 'card' + j.toString()
                         })
                         let $cardHeader = $('<div>', {
                             'class': 'card-header',
-                            'style': 'width:100%; padding: 0px; display: inline',
                             'id': 'heading' + j.toString()
                         })
                         let $heading = $('<h5>', {
-                            'class': 'mb-0',
-                            'id': 'h' + j.toString()
+                            'class': 'mb-0; mr-0',
+                            'id': 'h' + j.toString(),
+                            'style': 'margin-right: 0%; padding: 0px'
                         })
                         let $collapse = $('<div>', {
                             // 'class': 'btn btn-link',
-                            'style': 'width: 80%; text-align: center; display: inline-block',
+                            'class': 'collapse-col',
                             'data-toggle': 'collapse',
                             'data-target': '#collapse' + j.toString(),
                             'aria-expanded': 'true',
@@ -126,7 +241,8 @@ $(function () {
                         })
                         let $buttonx = $('<button>', {
                             'class': 'x',
-                            'text': 'x'
+                            'text': 'x',
+                            'style': 'text-align: right; margin-left: 15px; position: absolute; right: 20px;'
                         })
                         let $box2 = $('<div>', {
                             'id': 'collapse' + j.toString(),
@@ -136,8 +252,57 @@ $(function () {
                         })
                         let $cardbody = $('<div>', {
                             'class': 'card-body',
-                            'text': 'hello world'
                         })
+
+                        // Setup for cards and overlay
+
+                        var $cardBackground = $('<img>', {
+                            'class': 'cardBackground',
+                            'src': (result.hits[ran].recipe.image),
+                        })
+
+                        var $table = $('<ul>', {
+                            'class': 'tableInfo'
+                        });
+
+                        var $tableData1 = $('<li>', {
+                            'class': 'list-item',
+                            'text': 'CAL COUNT: ' + Math.round(result.hits[ran].recipe.calories),
+                        })
+                        var $tableData2 = $('<li>', {
+                            'class': 'list-item',
+                            'text': 'MINUTES: ' + (result.hits[ran].recipe.totalTime),
+
+                        })
+                        var $tableData3 = $('<li>', {
+                            'class': 'list-item',
+                            'text': 'YIELD: ' + (result.hits[ran].recipe.yield),
+
+                        })
+                        var $tableData4 = $('<a>', {
+                            'class': 'recipe_style',
+                            'text': 'RECIPE',
+                            'href': result.hits[ran].recipe.shareAs,
+                        })
+                        var $innerDiv = $('<div>', {
+                            'class': 'overlayInfo'
+                        });
+
+
+                        // Setting up card layout (image and overlay)
+                        // $table.append($tableData1)
+
+                        $cardbody.append($cardBackground);
+
+                        $table.append($tableData1);
+                        $table.append($tableData2);
+                        $table.append($tableData3);
+                        $table.append($tableData4);
+
+                        $cardbody.append($innerDiv);
+                        $innerDiv.append($table);
+
+
                         $('#accordion').append($card)
                         $(`#card${j}`).append($cardHeader)
                         $(`#heading${j}`).append($heading)
@@ -149,75 +314,9 @@ $(function () {
                             $(this).parents('.card').get(0).remove()
                         });
                     }
+                    window.location = '#accordion'
+                    $('#enter-button').prop("disabled", false);
                 })
-            })
-            var type = inputs[2] 
-            $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
-            .done((result) => {
-                console.log(result);
-                while (k < 10) {
-                    k++
-                    j++
-                    let ran = Math.floor(Math.random() * 99) // randomly take one recipe
-                    // let $recipe = $('<div>', {
-                    //   'text': result.hits[ran].recipe.label
-                    // })
-                    // let $recipeimg = $('<img>', {
-                    //   'src': result.hits[ran].recipe.image
-                    // })
-                    // $('#information-box').append($recipe)
-                    // $('#information-box').append($recipeimg)
-                    let $card = $('<div>', {
-                        'class': "card",
-                        'style': "width:100%",
-                        'id': 'card' + j.toString()
-                    })
-                    let $cardHeader = $('<div>', {
-                        'class': 'card-header',
-                        'style': 'width:100%; padding: 0px; display: inline',
-                        'id': 'heading' + j.toString()
-                    })
-                    let $heading = $('<h5>', {
-                        'class': 'mb-0',
-                        'id': 'h' + j.toString()
-                    })
-                    let $collapse = $('<div>', {
-                        // 'class': 'btn btn-link',
-                        'style': 'width: 80%; text-align: center; display: inline-block',
-                        'data-toggle': 'collapse',
-                        'data-target': '#collapse' + j.toString(),
-                        'aria-expanded': 'true',
-                        'aria-controls': 'collapse' + j.toString(),
-                        'text': result.hits[ran].recipe.label
-                    })
-                    let $buttonx = $('<button>', {
-                        'class': 'x',
-                        'text': 'x'
-                    })
-                    let $box2 = $('<div>', {
-                        'id': 'collapse' + j.toString(),
-                        'class': 'collapse', // show
-                        'aria-labelledby': 'heading' + j.toString(),
-                        'data-parent': '#accordion'
-                    })
-                    let $cardbody = $('<div>', {
-                        'class': 'card-body',
-                        'text': 'hello world'
-                    })
-                    $('#accordion').append($card)
-                    $(`#card${j}`).append($cardHeader)
-                    $(`#heading${j}`).append($heading)
-                    $(`#h${j}`).append($collapse)
-                    $(`#h${j}`).append($buttonx)
-                    $(`#card${j}`).append($box2)
-                    $(`#collapse${j}`).append($cardbody)
-                    $(".x").on('click', function () {
-                        $(this).parents('.card').get(0).remove()
-                    });
-                }
-                window.location = '#accordion'
-                $('#enter-button').prop("disabled", false);
-            })
             $('#accordion').append($randomButton)
             $('#random-button').on("click", function () {
                 var length = $('.card').length;
@@ -226,12 +325,23 @@ $(function () {
                 console.log(x)
                 let $cards = $('.card')
                 let id = $cards[x].id
-                let nums = id.replace(/[a-z]/gi, '') 
+                let nums = id.replace(/[a-z]/gi, '')
                 $(`#collapse${nums}`).removeClass('collapse')
             })
         }
     })
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
