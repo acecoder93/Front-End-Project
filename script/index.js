@@ -86,12 +86,9 @@ $(function () {
             console.log(inputs)
             count = 0
         }
-        if (count == 3 && inputs[0] == "recipes") {
+        if (count == 2 && inputs[0] == "recipes") {
             var $recipeInputContainer = $('<div>', {
                 'id': 'recipeInputContainer'
-            })
-            var $recipeEmptyContainer = $('<div>', {
-                'id': 'recipeEmptyContainer'
             })
 
             var $recipeInput = $('<input>', {
