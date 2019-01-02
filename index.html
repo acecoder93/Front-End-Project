@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/index.css">
   <style>
 
 </style>
@@ -115,12 +116,10 @@
               // $('#information-box').append($recipeimg)
               let $card = $('<div>', {
                 'class': "card",
-                'style': "width:100%; background-image: linear-gradient(rgba(124, 166, 230, 0.781), rgba(229, 230, 231, 0.781));",
                 'id': 'card' + j.toString()
               })
               let $cardHeader = $('<div>', {
                 'class': 'card-header',
-                'style': 'width:100%; padding: 0px; display: inline;',
                 'id': 'heading' + j.toString()
               })
               let $heading = $('<h5>', {
@@ -130,7 +129,7 @@
               })
               let $collapse = $('<div>', {
                 // 'class': 'btn btn-link',
-                'style': 'width: 80%; text-align: left; display: inline-block; padding-left: 10px; ',
+                'class' : 'collapse-col',
                 'data-toggle': 'collapse',
                 'data-target': '#collapse' + j.toString(),
                 'aria-expanded': 'true',
@@ -150,39 +149,40 @@
               })
               let $cardbody = $('<div>', {
                 'class': 'card-body',
-                'style': 'background-color: rgba(102, 117, 167, 0.719); opacity: 1; margin: 0px; padding: 0px; position: relative' // testing the color
               })
 
               // Setup for cards and overlay
          
               var $cardBackground = $('<img>', {
+                'class' : 'cardBackground',
                 'src' : (result.hits[ran].recipe.image),
-                'style' : 'display: block; margin-left: 0px; padding: 0px; height: 100%; width: 100%; display: block; opacity: .8',
               })
 
               var $table = $('<ul>', {
-                'style' : 'display: block; color: white; padding-left: 20px;'
+                'class' : 'tableInfo'
               });
               
               var $tableData1 = $('<li>', {
+                  'class' : 'list-item',
                   'text' : 'CAL COUNT: ' + Math.round(result.hits[ran].recipe.calories),
               })
               var $tableData2 = $('<li>', {
+                  'class' : 'list-item',
                   'text' : 'MINUTES: ' + (result.hits[ran].recipe.totalTime),
 
               })
               var $tableData3 = $('<li>', {
+                  'class' : 'list-item',
                   'text' : 'YIELD: ' + (result.hits[ran].recipe.yield),
 
               })
               var $tableData4 = $('<a>', {
+                  'class' : 'recipe_style',
                   'text' : 'RECIPE',
                   'href' : result.hits[ran].recipe.shareAs,
-                  'style' : 'color: white; text-decoration: underline; text-align: center'
-
               })
               var $innerDiv = $('<div>',{
-                'style' : ' background-color: rgba(0,0,0,.3); position: absolute; top: 10%; left: 10%; width: 80%; height: 35%',
+                'class' : 'overlayInfo'
               });
         
             
