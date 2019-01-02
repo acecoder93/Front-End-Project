@@ -21,7 +21,7 @@ $(function () {
         inputs.push($('#cuisine-input').val())
         ClearFields()
         count++;
-        var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
+        var recipeque = ["What are you in the mood for?", "These are your choices!",'Welcome to the Sea! What can I assist you with?']
         var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
         var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
         if(inputs[0] == "recipes"){
@@ -69,7 +69,7 @@ $(function () {
             console.log(inputs)
             count = 0
         } 
-        if (count == 3 && inputs[0] == "recipes"){
+        if (count == 2 && inputs[0] == "recipes"){
             var $recipeInputContainer = $('<div>',{
                 'id': 'recipeInputContainer'
             })
@@ -86,7 +86,7 @@ $(function () {
             var $randomButton = $('<button>',{
                 'id':'random-button',
                 'style':'border: black 1px solid',
-                'text': `I Can't decide!`
+                'text': `I Can't Decide!`
             })
             $('#accordion').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
@@ -151,7 +151,7 @@ $(function () {
                     }
                 })
             })
-            var type = inputs[2] 
+            var type = inputs[1] 
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
             .done((result) => {
                 console.log(result);
