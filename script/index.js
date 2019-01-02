@@ -334,17 +334,6 @@ $(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Set the width of the side navigation to 250px */
 function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
@@ -363,3 +352,16 @@ function openNav2() {
 function closeNav2() {
     document.getElementById("mySidenav2").style.width = "0";
 }
+
+
+// // Media Query for Card
+// function myFunction(screenSize) {
+//     if (screenSize.matches) { 
+//     } else {
+//         document.card.class = "show";
+//     }
+//     }
+
+// var screenSize = window.matchMedia ("(max-width: 375px)")
+// myFunction(screenSize)
+// screenSize.addListener(myFunction)
