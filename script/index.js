@@ -246,7 +246,7 @@ $(function () {
                         })
                         let $box2 = $('<div>', {
                             'id': 'collapse' + j.toString(),
-                            'class': 'collapse', // show
+                            'class': 'show', // collapse
                             'aria-labelledby': 'heading' + j.toString(),
                             'data-parent': '#accordion'
                         })
@@ -330,6 +330,16 @@ $(function () {
             })
         }
     })
+    function myFunction(screenSize) {
+        if (screenSize.matches) { 
+            $('.show').classList.add("collapse")
+        } else {
+            $('.collapse').classList.add("show")    }
+        }
+    
+    var screenSize = window.matchMedia ("(max-width: 375px)")
+    myFunction(screenSize)
+    screenSize.addListener(myFunction)
 });
 
 
@@ -357,9 +367,9 @@ function closeNav2() {
 // // Media Query for Card
 // function myFunction(screenSize) {
 //     if (screenSize.matches) { 
+//         $('.show').classList.add("collapse")
 //     } else {
-//         document.card.class = "show";
-//     }
+//         $('.collapse').classList.add("show")    }
 //     }
 
 // var screenSize = window.matchMedia ("(max-width: 375px)")
