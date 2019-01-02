@@ -21,6 +21,7 @@ $(function () {
         inputs.push($('#cuisine-input').val())
         ClearFields()
         count++;
+        var weatherque = ["What can I assist you with?"]
         var recipeque = ["Great, Where are you currently?", "What are you in the mood for?", "These are your choices!", 'Welcome to the Sea! What can I assist you with?']
         var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
         var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
@@ -28,7 +29,23 @@ $(function () {
             var srcText = recipeque[i];
         } else if (inputs[0] == "restaurants") {
             var srcText = restaurantque[i]
-        } else {
+        } else if (isNaN(inputs[0]) == false){
+            let url = "http://api.openweathermap.org/data/2.5/weather?zip=";
+            let apiKey = "bd0b9c18de9f9362ac0f2bc5223f84cf";
+            let zipCode = inputs[0];
+            $.get(url + zipCode + ',us&units=imperial&APPID=' + apiKey)
+            .done((result) => {
+                var fahrenheit = result.main.temp;
+                var degF = Math.floor(fahrenheit);
+                $('#weather').append(`${degF}`);
+                // var weatherCondition = result.weather[0].id; This is related to background images
+            })
+            inputs=[]
+            count = 0
+            $('#enter-button').prop("disabled", false);
+            var srcText = weatherque[i];
+        }
+        else {
             var srcText = invalidque[i]
         }
         var l = 0;//used to iterate through each letter of a string
@@ -73,6 +90,10 @@ $(function () {
             var $recipeInputContainer = $('<div>', {
                 'id': 'recipeInputContainer'
             })
+            var $recipeEmptyContainer = $('<div>', {
+                'id': 'recipeEmptyContainer'
+            })
+
             var $recipeInput = $('<input>', {
                 'type': "text",
                 'style': 'border: brown 1px solid; border-radius:3px',
@@ -88,9 +109,12 @@ $(function () {
                 'style': 'border: black 1px solid',
                 'text': `I Can't decide!`
             })
-            $('#accordion').append($recipeInputContainer)
+            $('#accordion-holder').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
             $('#recipeInputContainer').append($recipeinputButton)
+            // $('#recipeEmptyContainer').append($recipeInputContainer)
+           
+            
             $('#recipe-button').on("click", function () {
                 k = $('.card').length
                 var type = $('#moreRecipeInput').val()
@@ -246,7 +270,7 @@ $(function () {
                         })
                         let $box2 = $('<div>', {
                             'id': 'collapse' + j.toString(),
-                            'class': 'show', // collapse
+                            'class': 'collapse', // collapse
                             'aria-labelledby': 'heading' + j.toString(),
                             'data-parent': '#accordion'
                         })
@@ -317,7 +341,7 @@ $(function () {
                     window.location = '#accordion'
                     $('#enter-button').prop("disabled", false);
                 })
-            $('#accordion').append($randomButton)
+            $('#recipeInputContainer').append($randomButton)
             $('#random-button').on("click", function () {
                 var length = $('.card').length;
                 console.log(length)
@@ -330,16 +354,16 @@ $(function () {
             })
         }
     })
-    function myFunction(screenSize) {
-        if (screenSize.matches) { 
-            $('.show').classList.add("collapse")
-        } else {
-            $('.collapse').classList.add("show")    }
-        }
+    // function myFunction(screenSize) {
+    //     if (screenSize.matches) { 
+    //         $('.show').classList.add("collapse")
+    //     } else {
+    //         $('.collapse').classList.add("show")}
+    //     }
     
-    var screenSize = window.matchMedia ("(max-width: 375px)")
-    myFunction(screenSize)
-    screenSize.addListener(myFunction)
+    // var screenSize = window.matchMedia ("(max-width: 375px)")
+    // myFunction(screenSize)
+    // screenSize.addListener(myFunction)
 });
 
 
