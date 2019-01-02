@@ -26,6 +26,7 @@ $(function () {
         var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
         var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
         if (inputs[0] == "recipes") {
+            console.log(i)
             var srcText = recipeque[i];
         } else if (inputs[0] == "restaurants") {
             var srcText = restaurantque[i]
@@ -85,6 +86,8 @@ $(function () {
             inputs = []
             console.log(inputs)
             count = 0
+        }else if(srcText == weatherque[0]){
+            i=0
         }
         if (count == 2 && inputs[0] == "recipes") {
             var $recipeInputContainer = $('<div>', {
