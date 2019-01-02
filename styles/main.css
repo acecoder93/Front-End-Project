@@ -3,7 +3,7 @@ main{
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    height:150%;
+    height:auto;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -15,15 +15,18 @@ main{
     width:80%;
     height: 60%;
     margin-top: 25%;
+    position: relative;
 }
 
 /* Website Card Layout */
 #accordion{
     width:80%;
     display:flex; 
+    flex-wrap: wrap;
     flex-direction:row; 
-    justify-content: center; 
-    align-items:center; 
+    justify-content: space-between; 
+    align-items:center;
+    position: relative; 
     margin-left:10%;
     opacity:1.75;
     font-family : 'Open Sans';
@@ -31,7 +34,11 @@ main{
 
 .card{
     background-image: linear-gradient(rgba(50, 82, 113, 0.781), rgba(224, 228, 237, 0.781));
-    width: 100%;
+    width: 30%;
+    margin-top: 12%;
+    padding: 0px;
+    min-width: 250px;
+    
 }
 
 .card-header{
@@ -102,10 +109,21 @@ main{
     font-size: 15px;
 }
 
+#recipeInputContainer { 
+    width:100%;
+    height:25px;
+    position: absolute;
+    /* bottom: 75%; */
+    top: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+
 
 
 /* Mobile Layout */
-@media screen and (max-width: 375px){
+@media screen and (max-width: 768px){
     #accordion-holder{
         background: rgba(114, 112, 112, 0.75);
         height:auto;
@@ -123,6 +141,10 @@ main{
         margin-left:10%;
         opacity:1.75;
         font-family : 'Open Sans';
+        position: relative;
+    }
+    .card{
+        margin-top:1px;
     }
 }
 
