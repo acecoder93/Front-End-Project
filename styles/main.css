@@ -24,5 +24,89 @@ main{
     justify-content: center; 
     align-items:center; 
     margin-left:10%;
-    opacity:1.75
+    opacity:1.75;
+    font-family : 'Open Sans';
+    font-size: 3px
 }
+
+.card{
+    background-image: linear-gradient(rgba(50, 82, 113, 0.781), rgba(224, 228, 237, 0.781));
+    width: 100%;
+}
+
+.card-header{
+    width: 100%;
+    padding: 0px; 
+    display: inline;
+}
+
+.collapse-col{
+    width: 80%; 
+    text-align: left; 
+    display: inline-block; 
+    padding-left: 10px;
+}
+
+/* .but-x{
+    text-align: right;
+    margin-left: 15px;
+    position: absolute;
+    right: 20px;
+} */
+
+.card-body{
+    background-color: rgba(50, 82, 113, 0.719); 
+    opacity: 1; 
+    margin: 0px; 
+    padding: 0px; 
+    position: relative;
+}
+
+.cardBackground{
+    display: block; 
+    margin-left: 0px; 
+    padding: 0px; 
+    height: 100%; 
+    width: 100%; 
+    display: block; 
+    opacity: .8'
+}
+
+.tableInfo{
+    display: block; 
+    color: white; 
+    padding-left: 20px;
+}
+
+
+.overlayInfo{
+    background-color: rgba(0,0,0,.3); 
+    position: absolute; 
+    top: 10%; 
+    left: 10%; 
+    width: 80%; 
+    height: 35%
+}
+
+.list-item{
+    list-style : 'position inside';
+    font-size: 15px;
+    color: white;
+}
+
+.recipe_style{
+    color: white; 
+    text-decoration: underline; 
+    text-align: center;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
