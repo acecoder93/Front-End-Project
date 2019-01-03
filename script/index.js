@@ -127,27 +127,38 @@ $(function () {
         }
         if (count == 2 && inputs[0] == "recipes") {
             var $recipeInputContainer = $('<div>', {
-                'id': 'recipeInputContainer'
+                'id': 'recipeInputContainer',
+                'style': 'display:flex; flex-direction:column; justify-content:center; align-items:center'
+
+            })
+            var $recipeInputButtonContainer = $('<div>', {
+                'id': 'recipeInputButtonContainer',
+                'style': 'display:flex; justify-content:space-around; margin-top:3%; width:60%'
+
             })
 
             var $recipeInput = $('<input>', {
                 'type': "text",
-                'style': 'border: brown 1px solid; border-radius:3px',
-                'id': 'moreRecipeInput'
+                'style': 'border:0;border-bottom:#445376 5px solid; border-radius:3px; background:none; width:80%; margin-top:5%',
+                'id': 'moreRecipeInput',
+                'placeholder': 'What else would you like to eat?'
             })
             var $recipeinputButton = $('<button>', {
                 'id': 'recipe-button',
                 'class':'hoverbutton',
-                'text': 'More'
+                'style':'font-weight: bold; width:30%; height:15%',
+                'text': 'ADD'
             })
             var $randomButton = $('<button>', {
                 'id': 'random-button',
                 'class':'hoverbutton',
-                'text': `Randomize!`
+                'style':'font-weight: bold; width:30%; height:15%',
+                'text': `RANDOMIZE!`
             })
             $('#accordion-holder').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
-            $('#recipeInputContainer').append($recipeinputButton)
+            $('#recipeInputContainer').append($recipeInputButtonContainer)
+            $('#recipeInputButtonContainer').append($recipeinputButton)
             // $('#recipeEmptyContainer').append($recipeInputContainer)
            
             
@@ -173,7 +184,7 @@ $(function () {
                             let $heading = $('<h5>', {
                                 'class': 'mb-0; mr-0',
                                 'id': 'h' + j.toString(),
-                                'style': 'margin-right: 0%; padding: 0px; position: relative'
+                                'style': 'margin-right: 0%; padding: 0px; display: flex; align-items: center'
                             })
                             let $collapse = $('<div>', {
                                 // 'class': 'btn btn-link',
@@ -384,10 +395,10 @@ $(function () {
                             $(this).parents('.card').get(0).remove()
                         });
                     }
-                    window.location = '#accordion'
+                    window.location = '#accordion-holder'
                     $('#enter-button').prop("disabled", false);
                 })
-            $('#recipeInputContainer').append($randomButton)
+            $('#recipeInputButtonContainer').append($randomButton)
             $('#random-button').on("click", function () {
                 var length = $('.card').length;
                 console.log(length)
