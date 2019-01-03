@@ -146,13 +146,13 @@ $(function () {
             var $recipeinputButton = $('<button>', {
                 'id': 'recipe-button',
                 'class':'hoverbutton',
-                'style':'font-weight: bold; width:30%; height:15%',
+                'style':'font-weight: bold; width:30%; height:15%; min-width:111px',
                 'text': 'ADD'
             })
             var $randomButton = $('<button>', {
                 'id': 'random-button',
                 'class':'hoverbutton',
-                'style':'font-weight: bold; width:30%; height:15%',
+                'style':'font-weight: bold; width:30%; height:15%; min-width:111px',
                 'text': `RANDOMIZE!`
             })
             $('#accordion-holder').append($recipeInputContainer)

@@ -115,11 +115,11 @@ main{
 }
 
 /* This is for the "X" button for the cards */
-/* .x{
+.x{
     color: white;
     background: url(./img/x-mark.png) no-repeat;
     border: none;
-} */
+}
 
 
 .overlayInfo{
