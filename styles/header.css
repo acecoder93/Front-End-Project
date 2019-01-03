@@ -91,6 +91,24 @@ header{
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    margin-bottom:10px;
+    margin-bottom:30px;
     
+}
+
+#text-container{
+    height:6%;
+    display:flex;
+    align-items:center;
+    border:1px gray solid;
+    border-radius:3px;
+}
+
+#anchor-button{
+    padding:0px;
+}
+
+#enter-button{
+    padding-right:5px;
+    border:0;
+    background:none;
 }

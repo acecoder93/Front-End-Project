@@ -9,8 +9,26 @@ main{
     align-items:center;
 }
 
+.hoverbutton{
+    display:inline-block;
+    border:0.1em solid #445376;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#445376;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.hoverbutton:hover {
+    color:white;
+    background-color:#445376;
+}
+
 #accordion-holder{
-    background: rgba(114, 112, 112, 0.75);
+    background: rgba(255, 255, 255, 0.75);
     height:auto;
     width:80%;
     height: 60%;
@@ -121,16 +139,14 @@ main{
 }
 
 
-
-
 /* Mobile Layout */
 @media screen and (max-width: 768px){
     #accordion-holder{
-        background: rgba(114, 112, 112, 0.75);
+        background: rgba(255, 255, 255, 0.75);
         height:auto;
         width:80%;
         /* padding-top:5%; */
-        margin-top:25%;
+        margin-top:66%;
     }
 
     #accordion{
@@ -149,6 +165,30 @@ main{
     }
 }
 
+/* #random-button{
+    display:inline-block;
+    border:0.1em solid #445376;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#445376;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+#random-button:hover{
+    color:white;
+    background-color:#445376;
+} */
+
+
+@media all and (max-width:30em){
+    .hoverbutton{
+        display:block;
+    }
+}
 
 
 
