@@ -37,8 +37,9 @@ $(function () {
             .done((result) => {
                 var fahrenheit = result.main.temp;
                 var degF = Math.floor(fahrenheit);
-                $('#weather').append(`${degF}`);
-                // var weatherCondition = result.weather[0].id; This is related to background images
+                var degree = '&deg;F';
+                var city = result.name;
+                $('#weather').append(`${degF} ${degree} ${city}`);
             })
             inputs=[]
             count = 0

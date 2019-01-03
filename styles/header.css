@@ -11,7 +11,7 @@
         width:100%;
     }
     #gear{
-        height:100%
+        height:100%;
     }
     #gear img{
         height:100%
@@ -44,6 +44,13 @@
         align-items:center;
         justify-content: center;
     }
+    #weather{
+        display: flex;
+        font-size: 25px;
+        justify-content: flex-start;
+        align-items: center;
+    
+    }
 }
 
 #navbar{
@@ -53,10 +60,13 @@
     width:100%;
 }
 #gear{
-    height:100%
+    height:100%;
 }
 #gear img{
-    height:100%
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header{
@@ -85,4 +95,11 @@ header{
     flex-direction: column;
     align-items:center;
     justify-content: center;
+}
+#weather{
+    display: flex;
+    font-size: 25px;
+    justify-content: flex-start;
+    align-items: center;
+
 }
