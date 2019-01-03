@@ -11,6 +11,7 @@ main{
 
 #accordion-holder{
     background: rgba(114, 112, 112, 0.75);
+    border-radius: 5%;
     height:auto;
     width:80%;
     height: 60%;
@@ -34,18 +35,24 @@ main{
 }
 
 .card{
-    background-image: linear-gradient(rgba(50, 82, 113, 0.781), rgba(224, 228, 237, 0.781));
+    background-color: rgba(50, 82, 113, 0.781);
+    border-radius: 5%;
     width: 30%;
     margin-top: 12%;
     padding: 0px;
-    min-width: 250px;
+    min-width: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-header{
     width: 100%;
+    border-radius: 5%;
     padding: 0px; 
     display: inline;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 .collapse-col{
@@ -87,6 +94,12 @@ main{
     list-style-type: none;
 }
 
+.x{
+    color: white;
+    position: relative;
+    bottom: 7px;
+}
+
 
 .overlayInfo{
     background-color: rgba(0,0,0,.3); 
@@ -115,7 +128,7 @@ main{
     height:25px;
     position: absolute;
     /* bottom: 75%; */
-    top: 0%;
+    top: 1px;
     display: flex;
     justify-content: center;
 }
@@ -127,10 +140,11 @@ main{
 @media screen and (max-width: 768px){
     #accordion-holder{
         background: rgba(114, 112, 112, 0.75);
+        border-radius: 5%;
         height:auto;
         width:80%;
         /* padding-top:5%; */
-        margin-top:25%;
+        margin-top:66%;
     }
 
     #accordion{
