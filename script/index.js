@@ -53,7 +53,7 @@ $(function () {
 
                 // STORM
                 if (weatherCon2 == "2"){
-                    $('body').css('background-image', 'url(./img/background/stormy.png)');
+                    $('body').css('background-image', 'url(./img/background/storm.png)');
                 }
                 // RAIN 1
                 else if (weatherCon2 == "3"){
