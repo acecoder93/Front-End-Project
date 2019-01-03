@@ -40,7 +40,7 @@ $(function () {
                 var degF = Math.floor(fahrenheit);
                 var degree = '&deg;F';
                 var city = result.name;
-                $('#weather').append(`${degF} ${degree} ${city}`);
+                $('#weather').append(`${degF} ${degree} | ${city}`);
                 // var weatherCondition = result.weather[0].id; This is related to background images
             })
             inputs=[]
