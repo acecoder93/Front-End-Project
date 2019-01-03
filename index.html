@@ -20,38 +20,40 @@
 </head>
 
 <body>
-  <header>
-    <div id="navbar">
-      <div class="row"></div>
-      <div id="weather"></div>
-      <div id="gear" onclick="openNav2()"><img src="img/wheel2.png" alt=""> </div>
-    </div>
-    <div id="prompts">
-      <div id="captain-head-container">
-        <!-- <div style = "height:100%"> -->
-          <img id="captain-head" src="img/captain_logo_with_name.png" alt="" style = "width:25%">
-        <!-- </div> -->
+  <div class="waves">
+    <header>
+      <div id="navbar">
+        <div class="row"></div>
+        <div id="weather"></div>
+        <div id="gear" onclick="openNav2()"><img src="img/wheel2.png" alt=""> </div>
       </div>
-      <div class="typewriter">
-        <h1 id="target"  style="font-size:30px; text-align: center; margin: 0px;">Welcome to the Sea! <br />Please input your zip code.</h1>
+      <div id="prompts">
+        <div id="captain-head-container">
+          <!-- <div style = "height:100%"> -->
+            <img id="captain-head" src="img/captain_logo_with_name.png" alt="" style = "width:25%">
+          <!-- </div> -->
+        </div>
+        <div class="typewriter">
+          <h1 id="target"  style="font-size:30px; text-align: center; margin: 0px;">Welcome to the Sea! <br />Please input your zip code.</h1>
+        </div>
+        <div id="text-container">
+          <input type="text" id="cuisine-input" autofocus style="border: brown 1px solid; border-radius:3px">
+          <button id="enter-button" style="border: black 1px solid">Ahoy</button>
+        </div>
       </div>
-      <div id="text-container">
-        <input type="text" id="cuisine-input" autofocus style="border: brown 1px solid; border-radius:3px">
-        <button id="enter-button" style="border: black 1px solid">Ahoy</button>
-      </div>
-    </div>
-  </header>
-  <main>
-    <!-- <input type="text" id="cuisine-input" placeholder="cuisine">
-    <button id="submit">Go</button>
-    <div id="information-box" style="display:flex; flex-direction: column">
+    </header>
+    <main>
+      <!-- <input type="text" id="cuisine-input" placeholder="cuisine">
+      <button id="submit">Go</button>
+      <div id="information-box" style="display:flex; flex-direction: column">
 
-    </div> -->
-    <div id= "accordion-holder">
-    <div id="accordion"></div>
-    </div>
+      </div> -->
+      <div id= "accordion-holder">
+      <div id="accordion"></div>
+      </div>
 
-  </main>
+    </main>
+  </div>
   <div id="mySidenav2" class="sidenavright">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
     <a href="#">About</a>

@@ -149,7 +149,20 @@ main{
     }
 }
 
-
+body {
+    background-image: url(../img/background/plain.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Parallax */
+    background-attachment: fixed; 
+}
+.waves{
+    height: 100%;
+    background-image: url(../img/waves_background_long.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 
 

@@ -43,7 +43,39 @@ $(function () {
                 total.replace(`/\s/g, ''`);
                 var city = result.name;
                 $('#weather').append(`${total} | ${city}`);
-                // var weatherCondition = result.weather[0].id; This is related to background images
+
+                // Sky Background Logic
+                var weatherCondition = result.weather[0].id.toString();
+                var weatherCon2 = weatherCondition.charAt(0);
+                // Test Weather Conditions:
+                // var weatherCondition = "802";
+                // var weatherCon2 = "2";
+
+                // STORM
+                if (weatherCon2 == "2"){
+                    $('body').css('background-image', 'url(./img/background/stormy.png)');
+                }
+                // RAIN 1
+                else if (weatherCon2 == "3"){
+                    $('body').css('background-image', 'url(./img/background/rain.png)');
+                }
+                // RAIN 2
+                else if (weatherCon2 == "5"){
+                    $('body').css('background-image', 'url(./img/background/rain.png)');
+                }
+                // SNOW
+                else if (weatherCon2 == "6"){
+                    $('body').css('background-image', 'url(./img/background/snow.png)');
+                }
+                // CLEAR
+                else if (weatherCondition == "800"){
+                    $('body').css('background-image', 'url(./img/background/clear_day.png)');
+                }
+                // CLOUDY
+                else if (weatherCondition == "801" | "802" | "803" | "804"){
+                    $('body').css('background-image', 'url(./img/background/cloudy.png)');
+                }
+
             })
             inputs=[]
             count = 0
