@@ -111,6 +111,7 @@ header{
     padding-right:5px;
     border:0;
     background:none;
+}
 
 #weather{
     display: flex;

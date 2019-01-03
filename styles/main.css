@@ -62,7 +62,6 @@ main{
 }
 
 .card-header{
-    width: 100%;
     border-radius: 5%;
     padding: 0px; 
     display: inline;
@@ -112,11 +111,11 @@ main{
 }
 
 /* This is for the "X" button for the cards */
-.x{
+/* .x{
     color: white;
     background: url(./img/x-mark.png) no-repeat;
     border: none;
-}
+} */
 
 
 .overlayInfo{
@@ -162,13 +161,13 @@ main{
         background: rgba(255, 255, 255, 0.75);
 
         height:auto;
-        width:80%;
+        width:95%;
         /* padding-top:5%; */
         margin-top:66%;
     }
 
     #accordion{
-        width:80%;
+        width:100%;
         display:flex; 
         flex-direction:column; 
         justify-content: center; 
@@ -177,10 +176,24 @@ main{
         opacity:1.75;
         font-family : 'Open Sans';
         position: relative;
+        margin-left:0px;
     }
     .card{
         margin-top:30px;
+        margin-left:0px;
+        width:1%;
     }
+
+    .card-header{
+    width:100%;
+    border-radius:5%;
+    padding: 0px; 
+    color: white;
+    text-transform: uppercase;
+    margin-left:0px;
+
+    }
+
 }
 
 /* #random-button{
