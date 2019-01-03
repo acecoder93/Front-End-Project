@@ -50,8 +50,8 @@ main{
     padding: 0px; 
     display: inline;
     color: white;
-    text-align: center;
     text-transform: uppercase;
+    margin-left: 20px;
 
 }
 
@@ -94,10 +94,11 @@ main{
     list-style-type: none;
 }
 
+/* This is for the "X" button for the cards */
 .x{
     color: white;
-    position: relative;
-    bottom: 7px;
+    background: url(./img/x-mark.png) no-repeat;
+    border: none;
 }
 
 
