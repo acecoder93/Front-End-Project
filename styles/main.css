@@ -16,6 +16,7 @@ main{
     height: 60%;
     margin-top: 25%;
     position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Website Card Layout */
@@ -38,7 +39,7 @@ main{
     margin-top: 12%;
     padding: 0px;
     min-width: 250px;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-header{
@@ -129,7 +130,7 @@ main{
         height:auto;
         width:80%;
         /* padding-top:5%; */
-        margin-top:80%;
+        margin-top:25%;
     }
 
     #accordion{
@@ -144,7 +145,7 @@ main{
         position: relative;
     }
     .card{
-        margin-top:1px;
+        margin-top:30px;
     }
 }
 

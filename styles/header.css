@@ -1,4 +1,4 @@
-
+/* 
 
 @media screen and (max-width: 375px){
 
@@ -42,7 +42,7 @@
         align-items:center;
         justify-content: center;
     }
-}
+} */
 
 #navbar{
     height:10%;
@@ -66,7 +66,8 @@ header{
 }
 
 #captain-head-container{
-    height:40%;
+    height:auto;
+    width:50%;
     display:flex;
     flex-direction:column;
     justify-content: center;
@@ -74,8 +75,7 @@ header{
 }
 
 #captain-head{
-    padding-top:10px;
-    height:50%
+    min-width: 190px;
 }
 #prompts{
     height:90%;
@@ -83,11 +83,14 @@ header{
     flex-direction: column;
     align-items:center;
     justify-content: center;
+
 }
 .typewriter{
     height:25%;
     display:flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom:10px;
     
 }
