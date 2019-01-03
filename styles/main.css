@@ -28,6 +28,8 @@ main{
 }
 
 #accordion-holder{
+    display:flex;
+    flex-direction:column;
     background: rgba(255, 255, 255, 0.75);
     height:auto;
     width:80%;
@@ -39,7 +41,9 @@ main{
 
 /* Website Card Layout */
 #accordion{
+    order:2;
     width:80%;
+    height:70%;
     display:flex; 
     flex-wrap: wrap;
     flex-direction:row; 
@@ -144,10 +148,10 @@ main{
 
 }
 
-#recipeInputContainer { 
+#recipeInputContainer {
+    order:1; 
     width:100%;
-    height:25px;
-    position: absolute;
+    height:30%;
     /* bottom: 75%; */
     top: 1px;
     display: flex;
