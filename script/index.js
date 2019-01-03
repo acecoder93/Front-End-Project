@@ -72,7 +72,7 @@ $(function () {
                     $('body').css('background-image', 'url(./img/background/clear_day.png)');
                 }
                 // CLOUDY
-                else if (weatherCondition == "801" | "802" | "803" | "804"){
+                else if (weatherCondition == "801" || "802" || "803" || "804"){
                     $('body').css('background-image', 'url(./img/background/cloudy.png)');
                 }
 
