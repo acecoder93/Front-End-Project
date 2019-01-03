@@ -94,3 +94,9 @@ header{
     margin-bottom:10px;
     
 }
+#weather{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
