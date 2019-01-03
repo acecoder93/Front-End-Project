@@ -39,8 +39,10 @@ $(function () {
                 var fahrenheit = result.main.temp;
                 var degF = Math.floor(fahrenheit);
                 var degree = '&deg;F';
+                var total = degF + degree;
+                total.replace(`/\s/g, ''`);
                 var city = result.name;
-                $('#weather').append(`${degF} ${degree} | ${city}`);
+                $('#weather').append(`${total} | ${city}`);
                 // var weatherCondition = result.weather[0].id; This is related to background images
             })
             inputs=[]
