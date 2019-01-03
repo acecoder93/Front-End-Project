@@ -108,20 +108,24 @@ main{
     top: 10%; 
     left: 10%; 
     width: 80%; 
-    height: 35%
+    height: 45%
 }
 
 .list-item{
     list-style : 'position inside';
-    font-size: 15px;
+    font-size: 25px;
     color: white;
+    /* font-weight: bold; */
+    /* text-shadow: 2px 2px #1d1c1c; */
 }
 
 .recipe_style{
     color: white; 
     text-decoration: underline; 
     text-align: center;
-    font-size: 15px;
+    font-size: 25px;
+    /* text-shadow: 2px 2px #1d1c1c; */
+
 }
 
 #recipeInputContainer { 
