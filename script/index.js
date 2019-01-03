@@ -137,13 +137,12 @@ $(function () {
             })
             var $recipeinputButton = $('<button>', {
                 'id': 'recipe-button',
-                'style': 'border: black 1px solid',
+                'class':'hoverbutton',
                 'text': 'More'
             })
             var $randomButton = $('<button>', {
                 'id': 'random-button',
-                
-                'style': 'border: black 1px solid',
+                'class':'hoverbutton',
                 'text': `Randomize!`
             })
             $('#accordion-holder').append($recipeInputContainer)
