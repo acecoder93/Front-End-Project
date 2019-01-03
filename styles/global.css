@@ -25,3 +25,11 @@ p {
     line-height: 23px;
     margin: 0 0 23px 0;
 }
+
+.list-item{
+    font-family: 'Roboto', sans-serif;
+}
+
+.recipe_style{
+    font-family: 'Roboto', sans-serif;
+}

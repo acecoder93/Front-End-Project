@@ -38,8 +38,44 @@ $(function () {
             .done((result) => {
                 var fahrenheit = result.main.temp;
                 var degF = Math.floor(fahrenheit);
-                $('#weather').append(`${degF}`);
-                // var weatherCondition = result.weather[0].id; This is related to background images
+                var degree = '&deg;F';
+                var total = degF + degree;
+                total.replace(`/\s/g, ''`);
+                var city = result.name;
+                $('#weather').append(`${total} | ${city}`);
+
+                // Sky Background Logic
+                var weatherCondition = result.weather[0].id.toString();
+                var weatherCon2 = weatherCondition.charAt(0);
+                // Test Weather Conditions:
+                // var weatherCondition = "802";
+                // var weatherCon2 = "2";
+
+                // // STORM
+                // if (weatherCon2 == "2"){
+                //     $('body').css('background-image', 'url(./img/background/storm.png)');
+                // }
+                // // RAIN 1
+                // else if (weatherCon2 == "3"){
+                //     $('body').css('background-image', 'url(./img/background/rain.png)');
+                // }
+                // // RAIN 2
+                // else if (weatherCon2 == "5"){
+                //     $('body').css('background-image', 'url(./img/background/rain.png)');
+                // }
+                // // SNOW
+                // else if (weatherCon2 == "6"){
+                //     $('body').css('background-image', 'url(./img/background/snow.png)');
+                // }
+                // // CLEAR
+                // else if (weatherCondition == "800"){
+                //     $('body').css('background-image', 'url(./img/background/clear_day.png)');
+                // }
+                // // CLOUDY
+                // else if (weatherCondition == "801" || "802" || "803" || "804"){
+                //     $('body').css('background-image', 'url(./img/background/cloudy.png)');
+                // }
+
             })
             inputs=[]
             count = 0
@@ -107,7 +143,7 @@ $(function () {
             var $randomButton = $('<button>', {
                 'id': 'random-button',
                 'class':'hoverbutton',
-                'text': `I Can't Decide!`
+                'text': `Randomize!`
             })
             $('#accordion-holder').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
@@ -121,7 +157,7 @@ $(function () {
                 $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                     .done((result) => {
                         console.log(result);
-                        while (k < 12) {
+                        while (k < 10) {
                             k++
                             j++
                             let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -137,7 +173,7 @@ $(function () {
                             let $heading = $('<h5>', {
                                 'class': 'mb-0; mr-0',
                                 'id': 'h' + j.toString(),
-                                'style': 'margin-right: 0%; padding: 0px'
+                                'style': 'margin-right: 0%; padding: 0px; position: relative'
                             })
                             let $collapse = $('<div>', {
                                 // 'class': 'btn btn-link',
@@ -233,7 +269,7 @@ $(function () {
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                 .done((result) => {
                     console.log(result);
-                    while (k < 12) {
+                    while (k < 10) {
                         k++
                         j++
                         let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -257,7 +293,7 @@ $(function () {
                         let $heading = $('<h5>', {
                             'class': 'mb-0; mr-0',
                             'id': 'h' + j.toString(),
-                            'style': 'margin-right: 0%; padding: 0px'
+                            'style': 'margin-right: 0%; padding: 0px; display: flex; align-items: center'
                         })
                         let $collapse = $('<div>', {
                             // 'class': 'btn btn-link',
