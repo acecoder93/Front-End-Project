@@ -151,7 +151,19 @@ main{
     /* bottom: 75%; */
     top: 1px;
     display: flex;
+    flex-direction:column;
     justify-content: center;
+    align-items: center;
+}
+
+#more-input-holder{
+        background: rgba(255, 255, 255, 0.75);
+    height:auto;
+    width:80%;
+    height: 60%;
+    margin-top: 25%;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 

@@ -129,7 +129,9 @@ $(function () {
             var $recipeInputContainer = $('<div>', {
                 'id': 'recipeInputContainer'
             })
-
+            var $recipeInputButtonContainer = $('<div>',{
+                'id': 'recipeInputButtonContainer'
+            })
             var $recipeInput = $('<input>', {
                 'type': "text",
                 'style': 'border: brown 1px solid; border-radius:3px',
@@ -145,9 +147,10 @@ $(function () {
                 'class':'hoverbutton',
                 'text': `Randomize!`
             })
-            $('#accordion-holder').append($recipeInputContainer)
+            $('#more-input-holder').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
-            $('#recipeInputContainer').append($recipeinputButton)
+            $('#recipeInputContainer').append($recipeInputButtonContainer)
+            $('#recipeInputButtonContainer').append($recipeinputButton)
             // $('#recipeEmptyContainer').append($recipeInputContainer)
            
             
@@ -387,7 +390,7 @@ $(function () {
                     window.location = '#accordion'
                     $('#enter-button').prop("disabled", false);
                 })
-            $('#recipeInputContainer').append($randomButton)
+            $('#recipeInputButtonContainer').append($randomButton)
             $('#random-button').on("click", function () {
                 var length = $('.card').length;
                 console.log(length)
