@@ -110,8 +110,9 @@ $(function () {
             })
             var $randomButton = $('<button>', {
                 'id': 'random-button',
+                
                 'style': 'border: black 1px solid',
-                'text': `I Can't Decide!`
+                'text': `Randomize!`
             })
             $('#accordion-holder').append($recipeInputContainer)
             $('#recipeInputContainer').append($recipeInput)
@@ -125,7 +126,7 @@ $(function () {
                 $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                     .done((result) => {
                         console.log(result);
-                        while (k < 12) {
+                        while (k < 10) {
                             k++
                             j++
                             let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -237,7 +238,7 @@ $(function () {
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                 .done((result) => {
                     console.log(result);
-                    while (k < 12) {
+                    while (k < 10) {
                         k++
                         j++
                         let ran = Math.floor(Math.random() * 99) // randomly take one recipe
