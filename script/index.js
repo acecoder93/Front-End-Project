@@ -22,9 +22,9 @@ $(function () {
         ClearFields()
         count++;
         var weatherque = ["What can I assist you with?"]
-        var recipeque = ["What are you in the mood for?", "These are your choices!", 'Welcome to the Sea! What can I assist you with?']
-        var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! What can I assist you with?']
-        var invalidque = ["Please input a valid response.", 'Welcome to the Sea! What can I assist you with?']
+        var recipeque = ["What are you in the mood for?", "These are your choices!", 'Welcome to the Sea!\n What can I assist you with?']
+        var restaurantque = ["Great, Where are you currently?", 'Welcome to the Sea! \nWhat can I assist you with?']
+        var invalidque = ["Please input a valid response.", 'Welcome to the Sea!\n What can I assist you with?']
         if (inputs[0] == "recipes") {
             console.log(i)
             var srcText = recipeque[i];
@@ -168,7 +168,7 @@ $(function () {
                 $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                     .done((result) => {
                         console.log(result);
-                        while (k < 10) {
+                        while (k < 12) {
                             k++
                             j++
                             let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -280,7 +280,7 @@ $(function () {
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                 .done((result) => {
                     console.log(result);
-                    while (k < 10) {
+                    while (k < 12) {
                         k++
                         j++
                         let ran = Math.floor(Math.random() * 99) // randomly take one recipe
