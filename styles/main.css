@@ -51,6 +51,8 @@ main{
     display: inline;
     color: white;
     text-align: center;
+    text-transform: uppercase;
+
 }
 
 .collapse-col{
@@ -90,6 +92,12 @@ main{
     color: white; 
     padding-left: 20px;
     list-style-type: none;
+}
+
+.x{
+    color: white;
+    position: relative;
+    bottom: 7px;
 }
 
 

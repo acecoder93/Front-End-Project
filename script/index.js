@@ -142,7 +142,7 @@ $(function () {
                             let $heading = $('<h5>', {
                                 'class': 'mb-0; mr-0',
                                 'id': 'h' + j.toString(),
-                                'style': 'margin-right: 0%; padding: 0px'
+                                'style': 'margin-right: 0%; padding: 0px; position: relative'
                             })
                             let $collapse = $('<div>', {
                                 // 'class': 'btn btn-link',
