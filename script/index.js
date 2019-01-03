@@ -57,7 +57,7 @@ $(function () {
                 return;
             };
             l++;
-            result += srcText[l]
+            result += srcText[l].replace("\n", "<br />")
             $("#target").html(result);
             if (srcText.length == result.length) {
                 $('#enter-button').prop("disabled", false);
@@ -121,7 +121,7 @@ $(function () {
                 $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                     .done((result) => {
                         console.log(result);
-                        while (k < 10) {
+                        while (k < 12) {
                             k++
                             j++
                             let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -147,6 +147,10 @@ $(function () {
                                 'aria-expanded': 'true',
                                 'aria-controls': 'collapse' + j.toString(),
                                 'text': result.hits[ran].recipe.label
+                            })
+                            let $collapseText = $('<p>',{
+                                'id': 'collapseText' + j.toString(),
+                                'class':'m-0'
                             })
                             let $buttonx = $('<button>', {
                                 'class': 'x',
@@ -214,9 +218,10 @@ $(function () {
                             $('#accordion').append($card)
                             $(`#card${j}`).append($cardHeader)
                             $(`#heading${j}`).append($heading)
-                            $(`#h${j}`).append($collapse)
+                            $(`#h${j}`).append($collapseText)
                             $(`#h${j}`).append($buttonx)
                             $(`#card${j}`).append($box2)
+                            $(`#collapseText${j}`).append($collapse)
                             $(`#collapse${j}`).append($cardbody)
                             $(".x").on('click', function () {
                                 $(this).parents('.card').get(0).remove()
@@ -228,7 +233,7 @@ $(function () {
             $.get(url + type + '&app_id=' + apiId + '&app_key=' + apiKey + '&from=1&to=100') //'&calories=' + cal_min + '-' + cal_max + '&health=alcohol-free')
                 .done((result) => {
                     console.log(result);
-                    while (k < 10) {
+                    while (k < 12) {
                         k++
                         j++
                         let ran = Math.floor(Math.random() * 99) // randomly take one recipe
@@ -262,6 +267,10 @@ $(function () {
                             'aria-expanded': 'true',
                             'aria-controls': 'collapse' + j.toString(),
                             'text': result.hits[ran].recipe.label
+                        })
+                        let $collapseText = $('<p>',{
+                            'id': 'collapseText' + j.toString(),
+                            'class':'m-0'
                         })
                         let $buttonx = $('<button>', {
                             'class': 'x',
@@ -330,9 +339,10 @@ $(function () {
                         $('#accordion').append($card)
                         $(`#card${j}`).append($cardHeader)
                         $(`#heading${j}`).append($heading)
-                        $(`#h${j}`).append($collapse)
+                        $(`#h${j}`).append($collapseText)
                         $(`#h${j}`).append($buttonx)
                         $(`#card${j}`).append($box2)
+                        $(`#collapseText${j}`).append($collapse)
                         $(`#collapse${j}`).append($cardbody)
                         $(".x").on('click', function () {
                             $(this).parents('.card').get(0).remove()
