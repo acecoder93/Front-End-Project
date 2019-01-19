@@ -38,9 +38,7 @@ HTML5 - setup the structure of the website
 <br>
 CSS3 / Bootstrap4 - used to design and style 
 <br>
-JavaScript -
-<br>
-jQuery
+JavaScript / jQuery -  used to develop front-end functionality to user input search and API pull
 <br>
 Application Programming Interface (API) - used to retrieve information 
 <br>
