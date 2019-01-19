@@ -94,7 +94,6 @@ $(function () {
             })
             inputs=[]
             count = 0
-            $('#enter-button').prop("disabled", false);
             var srcText = weatherque[i];
         }
         else {
