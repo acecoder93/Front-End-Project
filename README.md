@@ -10,25 +10,25 @@ This front-end project was based on developing a minimum-viable-product (MVP) th
 
 
 <div style = "display: block; margin-left: auto; margin-right: auto; text-align: center">
-<h5>Initial Whiteboard Plan</h5>
+<h3>Initial Whiteboard Plan</h3>
 <img src="/img/planning/whiteboard_initial.png" style="height:100px; width:100px" alt="whiteboard_plan" >
 <br>
-<h5>Responsive Design Plan for Desktop & Mobile</h5>
+<h3>Responsive Design Plan for Desktop & Mobile</h3>
 <img src="/img/planning/response_plan.png" style="height:100px; width:100px" alt="responsive_design">
 <br>
-<h5>Mobile Layout</h5>
+<h3>Mobile Layout</h3>
 <img src="/img/planning/mobile_layout.png" style="height:100px; width:100px" alt="mobile_layout">
 <br>
-<h5>Desktop Layout</h5>
+<h3>Desktop Layout</h3>
 <img src="/img/planning/desktop_layout.png" style="height:100px; width:100px" alt="desktop_layout">
 <br>
-<h5>Mobile Layout developed via Sketch</h5>
+<h3>Mobile Layout developed via Sketch</h3>
 <img src="/img/planning/sketch_wireframe.png" style="height:100px; width:100px" alt="sketch_wireframe">
 <br>
-<h5>Desktop Layout developed via Sketch</h5>
+<h3>Desktop Layout developed via Sketch</h3>
 <img src="/img/planning/desktop_wireframe.png" style="height:100px; width:100px" alt="desktop_wireframe">
 <br>
-<h5>Cards Layout developed via Sketch</h5>
+<h3>Cards Layout developed via Sketch</h3>
 <img src="/img/planning/cards_wireframe.png" style="height:100px; width:100px" alt="cards_wireframe">
 </div>
 <br>
