@@ -7,7 +7,7 @@ Similar to Siri, Alexa, and Cortana, meet your decision-making assistant: The Ca
 This front-end project was based on developing a minimum-viable-product (MVP) that included key functionality, without having to sacrifice the user experience. The team's goal was to have a contemporary design that enages and targets the current market, as other decision-making games on the web have a rustic or antiquated design. This front-end project was based on developing an minimum-viable-product (MVP) to assist the user to make a decision.
 <br>
 
-<img src="/img/planning/whiteboard_initial.png" alt="whiteboard_plan">
+<img src="/img/planning/whiteboard_initial.png" alt="whiteboard_plan"  style = "height: 100px; width: 100px">
 <img src="/img/planning/response_plan.png" alt="responsive_design">
 <img src="/img/planning/mobile_layout.png" alt="mobile_layout">
 <img src="/img/planning/desktop_layout.png" alt="desktop_layout">
