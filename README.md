@@ -31,8 +31,8 @@ We set out to create a modern design that takes into account the user experience
 <p> This is the initial example of our layout for the desktop, and how we planned to have the cards collapse and reveal their respective content. Since a desktop or a laptop has a larger screen, we were able spread out the cards.
 </p>
 <br>
-<h3>Mobile Layout developed via Sketch</h3>
-<img src="/img/planning/sketch_wireframe.png" style="height:100px; width:100px" alt="sketch_wireframe">
+<h3 style ="text-center">Mobile Layout developed via Sketch</h3>
+<img style="text-center" src="/img/planning/sketch_wireframe.png" style="height:100px; width:100px" alt="sketch_wireframe">
 <br>
 <h3>Desktop Layout developed via Sketch</h3>
 <img src="/img/planning/desktop_wireframe.png" style="height:100px; width:100px" alt="desktop_wireframe">
