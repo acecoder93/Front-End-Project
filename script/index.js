@@ -169,12 +169,16 @@ $(function () {
                 'style':'font-weight: bold; width:30%; height:15%; min-width:111px',
                 'text': `RANDOMIZE!`
             })
-            $('#accordion-holder').append($recipeInputContainer)
-            $('#recipeInputContainer').append($recipeInput)
-            $('#recipeInputContainer').append($recipeInputButtonContainer)
-            $('#recipeInputButtonContainer').append($recipeinputButton)
+            if ($("#accordion-holder").find("#recipeInputContainer").length == 0){ 
+                $('#accordion-holder').append($recipeInputContainer)
+            }
+            if( $('#recipeInputContainer').is(':empty') ) {
+                $('#recipeInputContainer').append($recipeInput)
+                $('#recipeInputContainer').append($recipeInputButtonContainer)
+                $('#recipeInputButtonContainer').append($recipeinputButton)
+                $('#recipeInputButtonContainer').append($randomButton)
+            }
             // $('#recipeEmptyContainer').append($recipeInputContainer)
-           
             
             $('#recipe-button').on("click", function () {
                 k = $('.card').length
@@ -415,7 +419,6 @@ $(function () {
                     },1250);
                     $('#enter-button').prop("disabled", false);
                 })
-            $('#recipeInputButtonContainer').append($randomButton)
             $('#random-button').on("click", function () {
                 var length = $('.card').length;
                 console.log(length)
