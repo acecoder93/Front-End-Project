@@ -409,7 +409,10 @@ $(function () {
                             $(this).parents('.card').get(0).remove()
                         });
                     }
-                    window.location = '#accordion-holder'
+                    setTimeout(()=>{
+                        window.location = '#accordion-holder'
+
+                    },1250);
                     $('#enter-button').prop("disabled", false);
                 })
             $('#recipeInputButtonContainer').append($randomButton)
